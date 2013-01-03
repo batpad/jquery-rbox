@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+    <head>
+        <script src="jquery.js"></script>
+        <script src="lightbox.js"></script>
+        <script>
+$(function() {
+    $('.foo').rbox();
+});
+        </script>
+        <link rel="stylesheet" href="lightbox.css" />
+    </head>
+
+    <body>
+        <div class="overlay">
+            <div class="lightBoxBlock">
+                <div class="lightBox">
+                    <div class="lightBoxContent">
+
+                    </div>
+                    <a href="" class="closeLightBox">X</a>
+                    <a href="" class="nextLightBox">&#8594;</a>
+                    <a href="" class="prevLightBox">&#8592;</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="wrapper">
+            <span class="foo" data-rbox-type="image" data-rbox-series="x" data-rbox-image="test.png">FOO</span><br />
+            <span class="foo" data-rbox-type="html" data-rbox-series="x" data-rbox-html="something random">faaaa</span><br />
+            <span class="foo" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span>
+        </div>
+
+    </body>
+
+</html>
