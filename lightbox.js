@@ -102,7 +102,7 @@
                         $('.prevLightBox').show();
                     }
                 } else {
-                    $('.nextLightBox', '.prevLightBox').hide();
+                    $('.nextLightBox, .prevLightBox').hide();
                 }
 
                 opts.$anchor = $this;
