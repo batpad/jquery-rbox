@@ -82,8 +82,8 @@
                 opts.seriesSelector = '[data-' + opts.namespace + '-' + 'series=' + opts.series + ']';
             }
 
-            $this.click(function() {
-                
+            $this.click(function(e) {
+                e.preventDefault(); 
                 //alert("hello");        
 //                console.log(dataOptions);
                 if (opts.series) {
