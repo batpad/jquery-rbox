@@ -44,7 +44,7 @@
             namespace = options.namespace || "rbox",
             
             optionTypes = {
-                'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'caption', 'loading'],
+                'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'caption', 'loading', 'element'],
                 'integers': ['width', 'height', 'fade'],
                 'floats': [],
                 'arrays':  [],
@@ -65,6 +65,7 @@
                     'image': '', //path to image, for type image
                     'iframe': '', //iframe URL
                     'html': '', //arbitrary html
+                    'element': '', //selector for element on page whose innterHTML is the content
                     'ajax': '', //URL to fetch ajax content from
                     'caption': '', //optional caption
                     'fade': 300, //fade delay
@@ -146,6 +147,11 @@
                 break;
             case "html":
                 var $content = $('<div />').html(opts.html);
+                callback($content, opts);
+                break;
+
+            case "element":
+                var $content = $(opts.element).html();
                 callback($content, opts);
                 break;
         }

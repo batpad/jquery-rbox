@@ -27,11 +27,15 @@ $(function() {
         </div>
 
         <div id="wrapper">
-            <a href="#" class="foo" data-rbox-type="image" data-rbox-series="x" data-rbox-image="test.png">FOO</span><br />
+            <span class="foo" data-rbox-type="image" data-rbox-series="x" data-rbox-image="test.png">FOO</span><br />
             <span class="foo" data-rbox-type="html" data-rbox-series="x" data-rbox-html="something random">faaaa</span><br />
-            <span class="foo" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span>
+            <span class="foo" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
+            <span class="foo" data-rbox-type="element" data-rbox-series="x" data-rbox-element="#testElement">hidden element</span>
         </div>
 
+        <div id="testElement" style="display:none;">
+            <div class="content">Some content for a lovely lightbox!</div>
+        </div>
     </body>
 
 </html>
