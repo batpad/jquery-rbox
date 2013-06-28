@@ -53,28 +53,33 @@ img {
 
 /* LIGHTBOX */
     
-.overlay {
+.rbox_overlay {
     width: 100%;
     height: 100%;
     position: fixed;
     left: 0;
     top: 0;
+	bottom: 0;
+	right: 0;
     background: #fff;
     background: rgba(255,255,255,0.9);
     display: none;
     z-index: 10000;
+	text-align: center;
 }
 
-.lightBoxBlock {
-    width: 80%;
-    height: 90%;
-    margin: 0 auto;
+.rbox_lightBoxBlock {
+/*     width: 80%;
+height: 90%;
+ */    margin: 0 auto;
     margin-top: 5%;
     margin-bottom: 5%;
     position: relative;
+	text-align: center;
+	display: inline-block;
 }
 
-.lightBox {
+.rbox_lightBox {
     padding: 10px;
     position: relative;
 }
@@ -85,6 +90,10 @@ img {
 
 .openLightBox {
 	position: relative;
+}
+
+.nextLightBox, .prevLightBox, .closeLightBox {
+	text-decoration: none;
 }
 
 .closeLightBox {
@@ -107,6 +116,16 @@ img {
 
 .prevLightBox {
 	left: -30px;	
+}
+
+/* .rbox_lightBoxContent {
+	display: inline-block;
+}
+ */
+.rbox_lightBoxContent iframe {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
 }
 
 /* END LIGHTBOX */
