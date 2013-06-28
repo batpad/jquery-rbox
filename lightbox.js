@@ -4,18 +4,18 @@
     $.fn.rbox = function(options) {
         var that = this;
 
-        $('.lightBoxBlock').click(function(e) {
+        $('.rbox_lightBoxBlock').click(function(e) {
             e.stopPropagation();
         });
 
         $('.closeLightBox').click(function(e) {
             e.preventDefault();
             e.stopPropagation();
-            $('.overlay').unbind("click");
-            var opts = $('.lightBox').data("rboxOpts");
-            $('.overlay').fadeOut(opts.fade, function() {
+            $('.rbox_overlay').unbind("click");
+            var opts = $('.rbox_lightBox').data("rboxOpts");
+            $('.rbox_overlay').fadeOut(opts.fade, function() {
                 //alert("im your friend");
-                $('.lightBoxContent').html(opts.loading);
+                $('.rbox_lightBoxContent').html(opts.loading);
                 opts.onclose(opts);
             });
             //$('.lightBoxContent').data("rboxOpts", false);
@@ -24,7 +24,7 @@
         $('.nextLightBox').click(function(e) {
             e.preventDefault();
             e.stopPropagation();
-            var opts = $('.lightBox').data("rboxOpts");
+            var opts = $('.rbox_lightBox').data("rboxOpts");
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index + 1).click();
@@ -33,7 +33,7 @@
         $('.prevLightBox').click(function(e) {
             e.preventDefault();
             e.stopPropagation();
-            var opts = $('.lightBox').data("rboxOpts");
+            var opts = $('.rbox_lightBox').data("rboxOpts");
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index - 1).click();
@@ -139,7 +139,7 @@
                 callback($content, opts);
                 break;
             case "ajax":
-                $('.lightBoxContent').html(opts.loading);
+                $('.rbox_lightBoxContent').html(opts.loading);
                 $.get(opts.ajax, function(data) {
                     $content = $('<div />').html(data);
                     callback($content, opts);
@@ -160,15 +160,15 @@
     function showLightbox(content, opts) {
 
 
-        $('.lightBox').data("rboxOpts", opts);        
-        $('.overlay').show(opts.fade, function(){
-            $('.overlay').bind("click", function() {
+        $('.rbox_lightBox').data("rboxOpts", opts);        
+        $('.rbox_overlay').show(opts.fade, function(){
+            $('.rbox_overlay').bind("click", function() {
                 $('.closeLightBox').click();
             });
             opts.onopen();
-            $('.lightBoxContent').empty().append(content);
+            $('.rbox_lightBoxContent').empty().append(content);
             $(window).resize(function() {
-                if ($(window).height() < $('.lightBox').height())
+                if ($(window).height() < $('.rbox_lightBox').height())
                 {            
                     $('.overlay').css({'position':'absolute', 'height':'auto'});
                 } else {
