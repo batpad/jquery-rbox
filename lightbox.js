@@ -1,9 +1,11 @@
 
 
-(function($) {
-    $.fn.rbox = function(options) {
-        var that = this;
 
+(function($) {
+    
+    $.fn.rbox = function(options) {
+        options = options || {};
+        var that = this;
         $('.rbox_lightBoxBlock').click(function(e) {
             e.stopPropagation();
         });
@@ -15,7 +17,12 @@
             var opts = $('.rbox_lightBox').data("rboxOpts");
             $('.rbox_overlay').fadeOut(opts.fade, function() {
                 //alert("im your friend");
+                opts.beforeclose(opts);
+                $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
                 $('.rbox_lightBoxContent').html(opts.loading);
+                if (opts.scrollTop) {
+                    $(window).scrollTop(opts.scrollTop);
+                }
                 opts.onclose(opts);
             });
             //$('.lightBoxContent').data("rboxOpts", false);
@@ -25,6 +32,7 @@
             e.preventDefault();
             e.stopPropagation();
             var opts = $('.rbox_lightBox').data("rboxOpts");
+            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index + 1).click();
@@ -34,49 +42,56 @@
             e.preventDefault();
             e.stopPropagation();
             var opts = $('.rbox_lightBox').data("rboxOpts");
+            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index - 1).click();
-        });
+        });        
+
         
         //get options, giving preference, in order, to data- attributes defined on the html element, options passed when instantiatiing $(element).lightbox(options), defaults.
-        var options = options || {},
-            namespace = options.namespace || "rbox",
-            
-            optionTypes = {
-                'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'caption', 'loading', 'element'],
-                'integers': ['width', 'height', 'fade'],
-                'floats': [],
-                'arrays':  [],
-                'objects': [],
-                'booleans': []
-                //'functions': ['callback'] FIXME: lets not.
-            };
 
      
         return this.each(function() {
+            //console.log("options", options);
+                namespace = options.namespace || "rbox",
+                
+                optionTypes = {
+                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'element'],
+                    'integers': ['width', 'height', 'fade'],
+                    'floats': [],
+                    'arrays':  [],
+                    'objects': [],
+                    'booleans': ['fitvid', 'autoplay']
+                    //'functions': ['callback'] FIXME: lets not.
+                };
+
             //alert("hi");                
             var $this = $(this),
                 dataOptions = $.extend(options, $this.getDataOptions(optionTypes, namespace));
-
+            //console.log("dataOptions", dataOptions);
             var opts = $.extend({
                     'series': '', //string, series this lightbox is a part of
                     'type': 'image', //type of content - image, iframe, html or ajax
                     'image': '', //path to image, for type image
                     'iframe': '', //iframe URL
                     'html': '', //arbitrary html
+                    'video': '', //Path to video file
                     'element': '', //selector for element on page whose innterHTML is the content
                     'ajax': '', //URL to fetch ajax content from
                     'caption': '', //optional caption
                     'fade': 300, //fade delay
                     'width': 0,
                     'height': 0,
+                    'videoposter': '', //poster image path for video
+                    'autoplay': false, //if type==video, if video should autoplay
+                    'fitvid': false, //whether to use fitvid plugin (must be included)
                     'namespace': namespace,
                     'loading': 'Loading...',
                     'beforeopen': function(opts) { return opts; }, //called before open
                     'onopen': function() { $.noop(); }, //called onopen
-                    'onclose': function() { $.noop(); } //called onclose
-
+                    'onclose': function() { $.noop(); }, //called onclose
+                    'beforeclose': function() { $.noop(); }
                 }, dataOptions);
 
             if (opts.series) {
@@ -105,7 +120,8 @@
                 } else {
                     $('.nextLightBox, .prevLightBox').hide();
                 }
-
+                opts.scrollTop = $(window).scrollTop();
+                $(window).scrollTop(0);
                 opts.$anchor = $this;
                 opts = opts.beforeopen(opts);
                 getLightBoxContent(opts, showLightbox);
@@ -154,25 +170,58 @@
                 var $content = $(opts.element).html();
                 callback($content, opts);
                 break;
+
+            case "video":
+                var $content = $('<video />')
+                            .attr("controls", "controls")
+                            .addClass("rbox_videoElement")
+                            .attr("src", opts.video);
+                if (opts.autoplay) {
+                    $content.attr("autoplay", "autoplay");
+                }
+                if (opts.videoposter) {
+                    $content.attr("poster", opts.videoposter);
+                }
+                if (opts.width) {
+                    $content.attr("width", opts.width);
+                }
+                if (opts.height) {
+                    $content.attr("height", opts.height);
+                }
+                opts.beforeclose = function() {
+                    var $video = $('.rbox_videoElement');
+                    console.log($video);
+                    $video.get(0).pause();
+                    $video.remove();
+                };
+                callback($content, opts);
+                break;
         }
     }
 
     function showLightbox(content, opts) {
 
-
-        $('.rbox_lightBox').data("rboxOpts", opts);        
+        //var $content = $(content);
+        $('.rbox_lightBox').data("rboxOpts", opts);
+        $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type);
         $('.rbox_overlay').show(opts.fade, function(){
             $('.rbox_overlay').bind("click", function() {
                 $('.closeLightBox').click();
             });
-            opts.onopen();
+
             $('.rbox_lightBoxContent').empty().append(content);
+            if (opts.fitvid) {
+                $('.rbox_lightBoxContent').find('iframe').wrap('<div class="rbox_fitvid" />');
+                $('.rbox_fitvid').fitVids();    
+            }
+            opts.onopen(opts);
             $(window).resize(function() {
                 if ($(window).height() < $('.rbox_lightBox').height())
                 {            
-                    $('.overlay').css({'position':'absolute', 'height':'auto'});
+                    $('.rbox_overlay').css({'position':'absolute'});
+                    $('.rbox_overlay').height($(document).height());
                 } else {
-                    $('.overlay').css({'position':'', 'height':''});
+                    $('.rbox_overlay').css({'position':'', 'height':''});
                 }            
             });
             $(window).resize();
