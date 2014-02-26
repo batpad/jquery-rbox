@@ -11,11 +11,11 @@ html, body  {
 }
 
 body {
-	background-color: #fff;
+	/* background-color: #fff;
 	font-family:sans-serif;
-	color: #222;
 	font-size: 16px;
-	line-height: 1.4;
+	line-height: 1.4; */
+	color: #222;
 }
 
 img {
