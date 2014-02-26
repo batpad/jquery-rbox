@@ -1,6 +1,3 @@
-
-
-
 (function($) {
     
     $.fn.rbox = function(options) {
@@ -57,7 +54,7 @@
                 namespace = options.namespace || "rbox",
                 
                 optionTypes = {
-                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'element'],
+                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline'],
                     'integers': ['width', 'height', 'fade'],
                     'floats': [],
                     'arrays':  [],
@@ -77,7 +74,7 @@
                     'iframe': '', //iframe URL
                     'html': '', //arbitrary html
                     'video': '', //Path to video file
-                    'element': '', //selector for element on page whose innterHTML is the content
+                    'inline': '', //selector for element on page whose innerHTML is the content
                     'ajax': '', //URL to fetch ajax content from
                     'caption': '', //optional caption
                     'fade': 300, //fade delay
@@ -166,8 +163,8 @@
                 callback($content, opts);
                 break;
 
-            case "element":
-                var $content = $(opts.element).html();
+            case "inline":
+                var $content = $(opts.inline).html();
                 callback($content, opts);
                 break;
 
