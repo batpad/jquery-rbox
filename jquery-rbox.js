@@ -1,10 +1,20 @@
 (function($) {
     
     function createInitialElements() {
-
+        var $overlay = $('<div />').addClass('rbox_overlay');
+        var $lightboxBlock = $('<div />').addClass('rbox_lightBoxBlock').appendTo($overlay);
+        var $lightbox = $('<div />').addClass('rbox_lightBox').appendTo($lightboxBlock);
+        var $content = $('<div />').addClass('rbox_lightBoxContent').appendTo($lightbox);
+        var $close = $('<a />').attr('href', '').addClass('closeLightBox').text('X').appendTo($lightbox);
+        var $next = $('<a />').attr('href', '').addClass('nextLightBox').html('&#8594;').appendTo($lightbox);
+        var $prev = $('<a />').attr('href', '').addClass('prevLightBox').html('&#8592;').appendTo($lightbox);
+        $('body').append($overlay);
     }
 
     $.fn.rbox = function(options) {
+        if ($('.rbox_overlay').length === 0) {
+            createInitialElements();
+        }
         options = options || {};
         var that = this;
         $('.rbox_lightBoxBlock').click(function(e) {
