@@ -213,6 +213,10 @@
             });
 
             $('.rbox_lightBoxContent').empty().append(content);
+            if (opts.caption) {
+                var $caption = $('<div />').addClass('rbox_caption').html(opts.caption);
+                $('.rbox_lightBoxContent').append($caption);
+            }
             if (opts.fitvid) {
                 $('.rbox_lightBoxContent').find('iframe').wrap('<div class="rbox_fitvid" />');
                 $('.rbox_fitvid').fitVids();    
