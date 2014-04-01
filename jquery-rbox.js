@@ -7,6 +7,11 @@
             e.stopPropagation();
         });
 
+        //if series is passed in js options, we need to create the data attr
+        if (options.series) {
+            this.attr('data-rbox-series', options.series);
+        }
+        
         $('.closeLightBox').click(function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -90,6 +95,7 @@
                     'onclose': function() { $.noop(); }, //called onclose
                     'beforeclose': function() { $.noop(); }
                 }, dataOptions);
+
 
             if (opts.series) {
                 opts.seriesSelector = '[data-' + opts.namespace + '-' + 'series=' + opts.series + ']';
