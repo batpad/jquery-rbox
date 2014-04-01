@@ -32,6 +32,7 @@
             $('.rbox_overlay').unbind("click");
             var opts = $('.rbox_lightBox').data("rboxOpts");
             $('.rbox_overlay').removeClass('rbox_show');
+            $('.rbox_lightBoxContent').removeClass('rbox_show_content');
             //$('.rbox_overlay').fadeOut(opts.fade, function() {
                 //alert("im your friend");
             opts.beforeclose(opts);
@@ -228,7 +229,7 @@
             $('.closeLightBox').click();
         });
 
-        $('.rbox_lightBoxContent').empty().append(content);
+        $('.rbox_lightBoxContent').empty().append(content).addClass('rbox_show_content');
         if (opts.caption) {
             var $caption = $('<div />').addClass('rbox_caption').html(opts.caption);
             $('.rbox_lightBoxContent').append($caption);
