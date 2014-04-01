@@ -137,6 +137,11 @@ height: 90%;
 	max-width: 100%;
 }
 
+.rbox_inline {
+	background: #fff;
+	padding: 20px;
+}
+
 .rbox_show_content {
 
 	-webkit-animation: rotate 500ms ease-in 0ms forwards;
