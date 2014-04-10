@@ -61,11 +61,20 @@ img {
     top: 0;
 	bottom: 0;
 	right: 0;
-    background: #fff;
-    background: rgba(255,255,255,0.9);
-    display: none;
-    z-index: 10000;
+    background: #000;
+    background: rgba(0,0,0,0.8);
+	opacity: 0;
 	text-align: center;
+	z-index: -1;
+	display: flex; /* consider adding webkit prefix if you're feeling kind */
+	align-items: center;
+}
+
+.rbox_show {
+	opacity: 1;
+    z-index: 10000;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 .rbox_lightBoxBlock {
@@ -128,9 +137,30 @@ height: 90%;
 	max-width: 100%;
 }
 
-.rbox_show {
-    display: block;
+.rbox_inline {
+	background: #fff;
+	padding: 20px;
 }
+
+.rbox_show_content {
+
+	-webkit-animation: rotate 500ms ease-in 0ms forwards;
+	animation: rotate 500ms ease-in 0ms forwards;
+
+}
+
+@-webkit-keyframes rotate {
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 /* END LIGHTBOX */
 
 

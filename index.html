@@ -108,94 +108,88 @@
             <td>Description</td>
         </thead>
         <tr>
-            <td>'series'</td>
+            <td>series</td>
             <td>string</td>
             <td></td>
             <td>series this lightbox is a part of</td>
         </tr>
         <tr>
-            <td>'type'</td>
+            <td>type</td>
             <td>string</td>
             <td></td>
             <td>image, video, inline, html, iframe or ajax</td>
         </tr>
         <tr>
-            <td>'image'</td>
-            <td></td>
+            <td>image</td>
+            <td>string</td>
             <td></td>
             <td>path to image, for type image</td>
         </tr>
         <tr>
-            <td>'video'</td>
-            <td></td>
+            <td>video</td>
+            <td>string</td>
             <td></td>
             <td>path to video file, for type video</td>
         </tr>
         <tr>
-            <td>'iframe'</td>
-            <td></td>
+            <td>iframe</td>
+            <td>string</td>
             <td></td>
             <td>path to iframe, for type iframe</td>
         </tr>
         <tr>
-            <td>'ajax'</td>
-            <td></td>
+            <td>ajax</td>
+            <td>string</td>
             <td></td>
             <td>URL to fetch ajax content from</td>
         </tr>
         <tr>
-            <td>'html'</td>
-            <td></td>
+            <td>html</td>
+            <td>string</td>
             <td></td>
             <td>add some html here</td>
         </tr>
         <tr>
-            <td>'inline'</td>
-            <td></td>
+            <td>inline</td>
+            <td>string</td>
             <td></td>
             <td>selector for element on page whose innerHTML is the content</td>
         </tr>
         <tr>
-            <td>'caption'</td>
-            <td></td>
+            <td>caption</td>
+            <td>string</td>
             <td></td>
             <td>optional caption</td>
         </tr>
         <tr>
-            <td>'fade'</td>
-            <td></td>
-            <td>300 default?</td>
-            <td>fade delay: maybe do this via css?</td>
-        </tr>
-        <tr>
-            <td>'width'</td>
-            <td>Integer??</td>
+            <td>width</td>
+            <td>number</td>
             <td>0</td>
-            <td>is this for the iframe or something?</td>
+            <td>defined in pixels. Default width of 0 implies auto</td>
         </tr>
         <tr>
-            <td>'height'</td>
-            <td>Integer??</td>
+            <td>height</td>
+            <td>number</td>
             <td>0</td>
-            <td>is this for the iframe or something?</td>
+            <td>defined in pixels. Default height of 0 implies auto</td>
         </tr>
         <tr>
-            <td>'videoposter'</td>
-            <td></td>
+            <td>videoposter</td>
+            <td>string</td>
             <td></td>
             <td>poster image path for videos</td>
         </tr>
         <tr>
-            <td>'autoplay'</td>
-            <td></td>
+            <td>autoplay</td>
+            <td>boolean</td>
             <td>false</td>
             <td>if type==video, if video should autoplay</td>
         </tr>
         <tr>
-            <td>'fitvid'</td>
-            <td></td>
+            <td>fitvid</td>
+            <td>boolean</td>
             <td>false</td>
-            <td>whether to use the fitvids.js plugin (needs to be included). This ensures responsive videos</td>
+            <td>whether to use the fitvids.js plugin (needs to be included). This ensures responsive videos inside iframes. Not required for HTML5 video</td>
         </tr>
     </table>
                     'namespace': namespace,
@@ -230,12 +224,12 @@
  -->
             <h4>Examples</h4>
  
-            <span class="rbox_img" data-rbox-image="test.jpg" data-rbox-caption="foobar">Single Image</span><br>
-            <span class="rbox_img_gal" data-rbox-image="test2.jpg" data-rbox-caption="foobar">Image Gallery</span><br>
+            <span class="rbox_img" data-rbox-image="test.jpg" data-rbox-caption="Add a caption">Single Image</span><br>
+            <span class="rbox_img_gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>">Image Gallery</span><br>
             <span class="rbox_img_gal" data-rbox-image="test.jpg" data-rbox-caption="foobar">Image Gallery</span><br>
             <span class="rbox_img_gal" data-rbox-image="test2.jpg" data-rbox-caption="foobar">Image Gallery</span><br>
             <span class="rbox_img_gal" data-rbox-image="test.jpg" data-rbox-caption="foobar">Image Gallery</span><br>
-            <span class="foo" data-rbox-type="html" data-rbox-series="x" data-rbox-html="something random">faaaa</span><br />
+            <span class="foo" data-rbox-type="html" data-rbox-series="x" data-rbox-html="something random">HTML type</span><br />
             <span class="foo" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
             <span class="rbox_img" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
             <span class="foo" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/6IpMHy-rqKo">iframe</span><br />
@@ -243,7 +237,7 @@
         </div>
 
         <div id="testElement" style="display:none;">
-            <div class="content">Some content for a lovely lightbox!</div>
+            <div class="content">Some content for a lovely lightbox! Captions are being appended to everything!!!! BUG</div>
         </div>
     </body>
 
