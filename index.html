@@ -3,7 +3,6 @@
 <html>
     <head>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
-        <!-- <link rel="stylesheet" href="reset.css" /> -->
         <link rel="stylesheet" href="jquery-rbox.css" />
         <style>
             /* These styles don't need to be included for the lightbox to work - simply present for the demo page */
@@ -48,7 +47,9 @@
 
                 $('.rbox_inline').rbox({
                     'type': 'inline'
-                }); 
+                });
+                
+                $(".rbox_video").rbox();
 
             });
         </script>
@@ -233,7 +234,7 @@
             <span class="foo" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
             <span class="rbox_img" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
             <span class="foo" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/6IpMHy-rqKo">iframe</span><br />
-            <span class="foo" data-rbox-type="video" data-rbox-series="x" data-rbox-autoplay="true" data-rbox-video="http://marlon.in/streaming/1-Zuska.mp4">Test Video</span>
+            <span class="rbox_video" data-rbox-type="video" data-rbox-series="x" data-rbox-autoplay="true" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span>
         </div>
 
         <div id="testElement" style="display:none;">
