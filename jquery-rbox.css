@@ -71,6 +71,14 @@ img {
 	text-decoration: none;
 }
 
+.nextLightBox:after {
+	content: "\25b6";
+}
+
+.prevLightBox:after {
+	content: "\25c0";
+}
+
 .closeLightBox {
 	position: absolute;
 	right: -14px;
