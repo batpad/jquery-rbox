@@ -38,18 +38,26 @@
         <script src="jquery-rbox.js"></script>
         <script>
             $(document).ready(function(){
-                $('.rbox_img').rbox();
+                $('.rbox-img').rbox();
 
-                $('.rbox_img_gal').rbox({
+                $('.rbox-gal').rbox({
                     'type': 'image',
                     'series': 'image_gallery'
                 }); 
 
-                $('.rbox_inline').rbox({
+                $('.rbox-inline').rbox({
                     'type': 'inline'
                 });
                 
-                $(".rbox_video").rbox();
+                $('.rbox-html').rbox({
+                    'type': 'html'
+                });
+                           
+                $('.rbox-iframe').rbox({
+                    'type': 'iframe'
+                });
+                                
+                $(".rbox-video").rbox();
 
             });
         </script>
@@ -225,20 +233,20 @@
  -->
             <h4>Examples</h4>
  
-            <span class="rbox_img" data-rbox-image="test.jpg" data-rbox-caption="Add a caption">Single Image</span><br>
-            <span class="rbox_img_gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>">Image Gallery</span><br>
-            <span class="rbox_img_gal" data-rbox-image="test.jpg" data-rbox-caption="foobar">Image Gallery</span><br>
-            <span class="rbox_img_gal" data-rbox-image="test2.jpg" data-rbox-caption="foobar">Image Gallery</span><br>
-            <span class="rbox_img_gal" data-rbox-image="test.jpg" data-rbox-caption="foobar">Image Gallery</span><br>
-            <span class="foo" data-rbox-type="html" data-rbox-series="x" data-rbox-html="something random">HTML type</span><br />
+            <span class="rbox-img" data-rbox-image="test.jpg" data-rbox-caption="My caption">Single Image</span><br>
+            <span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>">Image Gallery</span><br>
+            <span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption">Image Gallery</span><br>
+            <span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Another caption">Image Gallery</span><br>
+            <span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="Caption are fun">Image Gallery</span><br>
+            <span class="rbox-html" data-rbox-type="html" data-rbox-series="x" data-rbox-html="Add your <strong>HTML</strong> here">HTML type</span><br />
             <span class="foo" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
-            <span class="rbox_img" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
-            <span class="foo" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/6IpMHy-rqKo">iframe</span><br />
-            <span class="rbox_video" data-rbox-type="video" data-rbox-series="x" data-rbox-autoplay="true" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span>
+            <span class="rbox-inline" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
+            <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="http://youtu.be/LZxKUDtPMDg">iframe</span><br />
+            <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span>
         </div>
 
         <div id="testElement" style="display:none;">
-            <div class="content">Some content for a lovely lightbox! Captions are being appended to everything!!!! BUG</div>
+            <div class="content">Some content for a lovely lightbox!</div>
         </div>
     </body>
 

@@ -137,7 +137,7 @@ height: 90%;
 	max-width: 100%;
 }
 
-.rbox_inline {
+.rbox_inline, .rbox_html {
 	background: #fff;
 	padding: 20px;
 }
@@ -147,6 +147,10 @@ height: 90%;
 	-webkit-animation: rotate 500ms ease-in 0ms forwards;
 	animation: rotate 500ms ease-in 0ms forwards;
 
+}
+
+.rbox_caption {
+	color: #fff;
 }
 
 @-webkit-keyframes rotate {
