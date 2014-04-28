@@ -1,3 +1,7 @@
+/* vertical centering via display flex causes issues on smaller screens on narrower displays
+require the animation on the box, not the contents
+*/
+
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -32,7 +36,7 @@ img {
     background: #000;
     background: rgba(0,0,0,0.8);
 	opacity: 0;
-	text-align: center;
+	/* text-align: center; */
 	z-index: -1;
 	display: flex; /* consider adding webkit prefix if you're feeling kind */
 	align-items: center;
@@ -50,8 +54,8 @@ img {
     margin-top: 5%;
     margin-bottom: 5%;
     position: relative;
-	text-align: center;
 	display: inline-block;
+	max-width: 80%;
 }
 
 .rbox_lightBox {
