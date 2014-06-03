@@ -1,5 +1,4 @@
-/* vertical centering via display flex causes issues on smaller screens on narrower displays
-require the animation on the box, not the contents
+/* vertical centering via display flex causes issues on smaller screens on narrower displays require the animation on the box, not the contents
 */
 
 * {
