@@ -304,16 +304,29 @@ $(document.ready(function() {
                 <h3>Examples</h3>
      
                 <h4>Image</h4>
-                <span class="rbox-img" data-rbox-image="test.jpg" data-rbox-caption="My caption">Single Image</span><br>
-
-                <h4>Series or Galleries</h4>
-                <span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>">Image Gallery</span><br>
-                <span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption">Image Gallery</span><br>
-                <span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Another caption">Image Gallery</span><br>
-                <span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="Caption are fun">Image Gallery</span><br>
+                <a href="" class="rbox-img" data-rbox-image="test.jpg"><img src="test.jpg" alt="Test Image" width="100"></a>
 <pre>
     <code class="code-block">
-// Option 1: As data attribute
+// Option 1: In Markup
+&lt;a href="" class="rbox-img" data-rbox-image="test.jpg"&gt;
+  &lt;img src="test.jpg" alt="Test Image" width="100"&gt;
+&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-img").rbox({
+    'type': 'image'
+});
+    </code>
+</pre>
+
+                <h4>Series or Galleries</h4>
+                <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
+                <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption"><img src="test.jpg" alt="Test Image" width="100"></a>
+                <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Another caption"><img src="test2.jpg" alt="Test Image" width="100"></a>
+                <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="Caption are fun"><img src="test.jpg" alt="Test Image" width="100"></a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup
 &lt;span class="rbox-gal" data-rbox-image="a.jpg" data-rbox-series="gallery"&gt;
 Image Gallery
 &lt;/span&gt;
