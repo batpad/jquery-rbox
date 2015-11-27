@@ -235,8 +235,11 @@
         }
 
 
-        if(opts.closebtn) {
-            $('.closeLightBox').css({'display': 'block'});
+        if(!opts.closebtn) {
+            $('.closeLightBox').hide();
+        }
+        else {
+            $('.closeLightBox').show();            
         }
 
         $('.rbox_lightBoxContent').empty().append(content).addClass('rbox_show_content');
