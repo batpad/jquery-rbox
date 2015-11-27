@@ -42,7 +42,7 @@
             }
 
             .main {
-                max-width: 800px;
+                max-width: 870px;
                 margin: 0 auto;
             }
 
@@ -99,7 +99,8 @@
                 });
                                 
                 $('.rbox-ajax').rbox({
-                    'type': 'ajax'
+                    'type': 'ajax',
+                    'ajax': 'test.html'
                 });
 
                 $(".rbox-video").rbox();
@@ -383,7 +384,23 @@ $(".rbox-html").rbox({
 });
     </code>
 </pre>
-                <span class="rbox-ajax" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
+
+
+                <h4>AJAX</h4>
+                <a href="" class="rbox-ajax" data-rbox-type="ajax" data-rbox-ajax="test.html">Ajax type</a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-ajax" data-rbox-type="ajax" data-rbox-ajax="test.html"&gt;Ajax type&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-ajax").rbox({
+    'type': 'ajax',
+    'ajax': 'test.html'
+});
+    </code>
+</pre>
+                
                 <span class="rbox-inline" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
                 <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span><br>
