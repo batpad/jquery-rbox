@@ -70,7 +70,14 @@
         <script src="jquery-rbox.js"></script>
         <script>
             $(document).ready(function(){
-                $('.rbox-img').rbox();
+                $('.rbox-img').rbox({
+                    'type': 'image'
+                });
+
+                $('.rbox-img-caption').rbox({
+                    'type': 'image',
+                    'caption': 'I am a caption'
+                });
 
                 $('.rbox-gal').rbox({
                     'type': 'image',
@@ -307,7 +314,7 @@ $(document.ready(function() {
                 <a href="" class="rbox-img" data-rbox-image="test.jpg"><img src="test.jpg" alt="Test Image" width="100"></a>
 <pre>
     <code class="code-block">
-// Option 1: In Markup
+// Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-img" data-rbox-image="test.jpg"&gt;
   &lt;img src="test.jpg" alt="Test Image" width="100"&gt;
 &lt;/a&gt;
@@ -319,6 +326,24 @@ $(".rbox-img").rbox({
     </code>
 </pre>
 
+                <h4>Image: Add a caption</h4>
+                <a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" data-rbox-caption="I am a caption"><img src="test2.jpg" alt="Test Image" width="100"></a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" 
+data-rbox-caption="I am a caption"&gt;
+  &lt;img src="test2.jpg" alt="Test Image" width="100"&gt;
+&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-img").rbox({
+    'type': 'image',
+    'caption': 'I am a caption'
+});
+    </code>
+</pre>
+
                 <h4>Series or Galleries</h4>
                 <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
                 <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption"><img src="test.jpg" alt="Test Image" width="100"></a>
@@ -326,7 +351,7 @@ $(".rbox-img").rbox({
                 <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="Caption are fun"><img src="test.jpg" alt="Test Image" width="100"></a>
 <pre>
     <code class="code-block">
-// Option 1: In Markup
+// Option 1: In Markup (with data attributes)
 &lt;span class="rbox-gal" data-rbox-image="a.jpg" data-rbox-series="gallery"&gt;
 Image Gallery
 &lt;/span&gt;
