@@ -1,4 +1,6 @@
 /* vertical centering via display flex causes issues on smaller screens on narrower displays require the animation on the box, not the contents
+ // Does rbox try to guess what type of element it is?
+
 */
 
 * {

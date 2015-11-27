@@ -2,12 +2,13 @@
 
 <html>
     <head>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400italic,400,700|Anonymous+Pro' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="jquery-rbox.css" />
         <style>
             body {
-                font-family: 'Open Sans', sans-serif;
-                font-size: 100%;
+                font-family: 'Lato', sans-serif;
+                font-size: 17px;
+                line-height: 1.4;
                 margin: 0;
                 padding: 0;
             }
@@ -25,13 +26,32 @@
             }
             
             td {
-                padding: 5px;
-                border: 1px solid #aaa;
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+
+            code {
+                font-family: "Anonymous Pro", monospace;
+                background: #eee;
+            }
+
+            .code-block {
+                display: block;
+                padding: 0px 15px;
+                border-left: 4px solid seagreen;
             }
 
             .main {
                 max-width: 800px;
                 margin: 0 auto;
+            }
+
+            .table-options {
+                font-size: 90%;
+            }
+
+            .table-options tr td:nth-of-type(3) {
+                width: 120px;
             }
 
             /* Helpers */
@@ -102,35 +122,38 @@
         <main class="main">
         <h1 class="center">jQuery Rbox Demo &amp; Documentation</h1>
         
-        <h2>Usage:</h2>
-        <div><strong>Include jQuery and the jQuery Rbox javascript: </strong></div>
-        
+        <h2>Usage</h2>
+        <ol>
+            <li>
+                <p><strong>Include jQuery and the jquery-rbox.js file. </strong></p>
 <pre>
-    <code>
-        // Include either in the head or just above closing body tag
-        &lt;script src="http://code.jquery.com/jquery-1.11.0.min.js"&gt;&lt;/script&gt;
-        &lt;script src="jquery-rbox.js"&gt;&lt;/script&gt;
-    </code>
-</pre>
-        
-        <div><strong>Include the jquery-rbox.css stylesheet in the head tag: </strong></div>
+    <code class="code-block">
+// Include either in the head or just above closing body tag
 
-<pre>
-    <code>
-        &lt;link rel="stylesheet" href="jquery-rbox.css" /glt;            
+&lt;script src="http://code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery-rbox.js"&gt;&lt;/script&gt;
     </code>
 </pre>
-        
-        <div><strong>Call rbox on an element:</strong></div>
-        <p><em>e.g. something with a class of foo</em></p>
-        
+            </li>
+            <li>
+                <p><strong>Include the jquery-rbox.css stylesheet in the head tag.</strong></p>
 <pre>
-    <code>
-        $(document.ready(function() {
-            $('.foo').rbox();
-        });            
+    <code class="code-block">
+&lt;link rel="stylesheet" href="jquery-rbox.css"&gt;            
     </code>
 </pre>
+            </li>
+            <li>
+                <p><strong>Initialize rbox.</strong></p>
+<pre>
+    <code class="code-block">
+$(document.ready(function() {
+    $('.foo').rbox();
+});            
+    </code>
+</pre>
+            </li>
+        </ol>         
         
         <h2>Features</h2>
         <ul>
@@ -143,7 +166,7 @@
         </ul>
         
         <h4>Options</h4>
-        <table>
+        <table class="table-options">
             <thead>
                 <td>Name</td>
                 <td>Type</td>
@@ -154,13 +177,14 @@
                 <td>series</td>
                 <td>string</td>
                 <td></td>
-                <td>series this lightbox is a part of</td>
+                <td>Series can be used for image galleries, etc.
+                </td>
             </tr>
             <tr>
                 <td>type</td>
                 <td>string</td>
                 <td></td>
-                <td>image, video, inline, html, iframe or ajax</td>
+                <td>Image, video, inline, html, iframe or ajax</td>
             </tr>
             <tr>
                 <td>image</td>
@@ -277,14 +301,34 @@
                 <span class="foo" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/6IpMHy-rqKo">iframe</span><br />
                 <span class="foo" data-rbox-type="video" data-rbox-series="x" data-rbox-autoplay="true" data-rbox-video="http://marlon.in/streaming/1-Zuska.mp4">Test Video</span>
      -->
-                <h4>Examples</h4>
+                <h3>Examples</h3>
      
+                <h4>Image</h4>
                 <span class="rbox-img" data-rbox-image="test.jpg" data-rbox-caption="My caption">Single Image</span><br>
+
+                <h4>Series or Galleries</h4>
                 <span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>">Image Gallery</span><br>
                 <span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption">Image Gallery</span><br>
                 <span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Another caption">Image Gallery</span><br>
                 <span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="Caption are fun">Image Gallery</span><br>
-                <span class="rbox-html" data-rbox-type="html" data-rbox-series="x" data-rbox-html="Add your <strong>HTML</strong> here">HTML type</span><br />
+<pre>
+    <code class="code-block">
+// Option 1: As data attribute
+&lt;span class="rbox-gal" data-rbox-image="a.jpg" data-rbox-series="gallery"&gt;
+Image Gallery
+&lt;/span&gt;
+&lt;span class="rbox-gal" data-rbox-image="b.jpg" data-rbox-series="gallery"&gt;
+Image Gallery
+&lt;/span&gt;
+
+// Option 2: In JS
+$(".rbox-gal").rbox({
+    'type': 'image',
+    'series': 'gallery'
+});
+    </code>
+</pre>
+             <span class="rbox-html" data-rbox-type="html" data-rbox-series="x" data-rbox-html="Add your <strong>HTML</strong> here">HTML type</span><br />
                 <span class="rbox-ajax" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
                 <span class="rbox-inline" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
