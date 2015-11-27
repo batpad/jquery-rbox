@@ -104,7 +104,11 @@
                     'ajax': 'test.html'
                 });
 
-                $(".rbox-video").rbox();
+                $(".rbox-video").rbox({
+                    'type': 'video'
+                    //'video': 'http://marlon.in/media/files/boost_virat_for_reel.mp4',
+                    //'autoplay': true
+                });
 
                 $(".rbox-not-close").rbox({
                     'closeonoverlay': false
@@ -418,8 +422,36 @@ $(".rbox-inline").rbox({
 });
     </code>
 </pre>
+
+                <h4>HTML5 Video</h4>
+                <p><a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4">Video</a></p>
+                <p><a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-autoplay="true">Video with autoplay</a></p>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-video" data-rbox-type="video" 
+data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"&gt;Video&lt;/a&gt;
+
+&lt;a href="" class="rbox-video-autoplay" data-rbox-type="video" 
+data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-autoplay="true"&gt;
+Video with autoplay&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-video").rbox({
+    'type': 'video',
+    'video': 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4'
+});
+
+$(".rbox-video-autoplay").rbox({
+    'type': 'video',
+    'video': 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
+    'autoplay': true
+});
+    </code>
+</pre>
+                <p>Source <a href="https://peach.blender.org/about/">here</a>, License <a href="http://creativecommons.org/licenses/by/3.0/">here</a>.</p>
+
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
-                <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span><br>
                 <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
                 <span class="rbox-no-close-button" data-rbox-image="test.jpg">Hide Close icon</span><br>
                 <!-- <span class="rbox-close-markup" data-rbox-image="test.jpg">Custom close markup</span><br> -->
