@@ -63,6 +63,10 @@
                     'type': 'iframe'
                 });
                                 
+                $('.rbox-ajax').rbox({
+                    'type': 'ajax'
+                });
+
                 $(".rbox-video").rbox();
 
                 $(".rbox-not-close").rbox({
@@ -73,6 +77,9 @@
                     'closebtn': false
                 })
 
+                $(".rbox-custom-bg").rbox({
+                    'bgcustom' : 'rgba(255,255,255,0.8)'
+                })
             });
         </script>
     </head>
@@ -219,6 +226,12 @@
                 <td>true</td>
                 <td>close the lightbox on clicking the overlay</td>
             </tr>
+            <tr>
+                <td>bgcustom</td>
+                <td>string</td>
+                <td>rgba(0, 0, 0, 0.8)</td>
+                <td>customize the background overlay for each instance of the rbox, if you like. use rgba for transparent backgrounds.</td>
+            </tr>
         </table>
                         'namespace': namespace,
                         'loading': 'Loading...',
@@ -258,12 +271,13 @@
                 <span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Another caption">Image Gallery</span><br>
                 <span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="Caption are fun">Image Gallery</span><br>
                 <span class="rbox-html" data-rbox-type="html" data-rbox-series="x" data-rbox-html="Add your <strong>HTML</strong> here">HTML type</span><br />
-                <span class="foo" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
+                <span class="rbox-ajax" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
                 <span class="rbox-inline" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
                 <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span><br>
                 <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
-                <span class="rbox-no-close-button" data-rbox-image="test.jpg">Hide Close icon</span>
+                <span class="rbox-no-close-button" data-rbox-image="test.jpg">Hide Close icon</span><br>
+                <span class="rbox-custom-bg" data-rbox-image="test.jpg">Custom background overlay</span>
             </div>
 
             <div id="testElement" style="display:none;">

@@ -75,7 +75,7 @@
                 namespace = options.namespace || "rbox",
                 
                 optionTypes = {
-                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline'],
+                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline', 'bgcustom'],
                     'integers': ['width', 'height', 'fade'],
                     'floats': [],
                     'arrays':  [],
@@ -108,6 +108,7 @@
                     'loading': 'Loading...',
                     'closeonoverlay': true,
                     'closebtn': true,
+                    'bgcustom': 'rgba(0, 0, 0, 0.8)', // color value for overlay
                     'beforeopen': function(opts) { return opts; }, //called before open
                     'onopen': function() { $.noop(); }, //called onopen
                     'onclose': function() { $.noop(); }, //called onclose
@@ -234,6 +235,9 @@
             });
         }
 
+        if(opts.bgcustom) {
+            $('.rbox_overlay').css({'backgroundColor': opts.bgcustom});
+        }
 
         if(!opts.closebtn) {
             $('.closeLightBox').hide();
