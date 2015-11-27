@@ -106,6 +106,7 @@
                     'fitvid': false, //whether to use fitvid plugin (must be included)
                     'namespace': namespace,
                     'loading': 'Loading...',
+                    'closeonoverlay': true,
                     'beforeopen': function(opts) { return opts; }, //called before open
                     'onopen': function() { $.noop(); }, //called onopen
                     'onclose': function() { $.noop(); }, //called onclose
@@ -225,15 +226,20 @@
         $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type);
         $('.rbox_overlay').addClass('rbox_show');
         //$('.rbox_overlay').show(opts.fade, function(){
-        $('.rbox_overlay').bind("click", function() {
-            $('.closeLightBox').click();
-        });
+    
+        if (opts.closeonoverlay) {
+            $('.rbox_overlay').bind("click", function() {
+                $('.closeLightBox').click();
+            });
+        }
+
 
         $('.rbox_lightBoxContent').empty().append(content).addClass('rbox_show_content');
         if (opts.caption) {
             var $caption = $('<div />').addClass('rbox_caption').html(opts.caption);
             $('.rbox_lightBoxContent').append($caption);
         }
+
         if (opts.fitvid) {
             $('.rbox_lightBoxContent').find('iframe').wrap('<div class="rbox_fitvid" />');
             $('.rbox_fitvid').fitVids();    

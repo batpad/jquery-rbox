@@ -65,6 +65,10 @@
                                 
                 $(".rbox-video").rbox();
 
+                $(".rbox-not-close").rbox({
+                    closeonoverlay: false
+                })
+
             });
         </script>
     </head>
@@ -205,6 +209,12 @@
                 <td>false</td>
                 <td>whether to use the fitvids.js plugin (needs to be included). This ensures responsive videos inside iframes. Not required for HTML5 video</td>
             </tr>
+            <tr>
+                <td>closeonoverlay</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>close the lightbox on clicking the overlay</td>
+            </tr>
         </table>
                         'namespace': namespace,
                         'loading': 'Loading...',
@@ -247,7 +257,8 @@
                 <span class="foo" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
                 <span class="rbox-inline" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
-                <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span>
+                <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span><br>
+                <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
             </div>
 
             <div id="testElement" style="display:none;">
