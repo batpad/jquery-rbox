@@ -38,6 +38,12 @@
             .center {
                 text-align: center;
             }
+
+            .rbox-close-class {
+                color: white;
+                border: 1px solid;
+                padding: 5px;
+            }
         </style>
     
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -48,7 +54,8 @@
 
                 $('.rbox-gal').rbox({
                     'type': 'image',
-                    'series': 'image_gallery'
+                    'series': 'image_gallery',
+                    'navmarkup': [, "<img src='http://placehold.it/20x20'>",]
                 }); 
 
                 $('.rbox-inline').rbox({
@@ -76,6 +83,13 @@
                 $(".rbox-no-close-button").rbox({
                     'closebtn': false
                 })
+
+                // $('.rbox-close-markup').rbox({
+                // });
+
+                $('.rbox-close-class-custom').rbox({
+                    'closebtnclass': 'rbox-close-class'
+                });
 
                 $(".rbox-custom-bg").rbox({
                     'bgcustom' : 'rgba(255,255,255,0.8)'
@@ -277,12 +291,13 @@
                 <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span><br>
                 <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
                 <span class="rbox-no-close-button" data-rbox-image="test.jpg">Hide Close icon</span><br>
+                <!-- <span class="rbox-close-markup" data-rbox-image="test.jpg">Custom close markup</span><br> -->
+                <span class="rbox-close-class-custom" data-rbox-image="test.jpg">Custom close class</span><br>
                 <span class="rbox-custom-bg" data-rbox-image="test.jpg">Custom background overlay</span>
             </div>
 
             <div id="testElement" style="display:none;">
                 <div class="content">Some content for a lovely lightbox!</div>
-                <div class="rbox-custom-close">Close</div>
             </div>        
         </main>
     </body>

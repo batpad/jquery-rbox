@@ -5,9 +5,9 @@
         var $lightboxBlock = $('<div />').addClass('rbox_lightBoxBlock').appendTo($overlay);
         var $lightbox = $('<div />').addClass('rbox_lightBox').appendTo($lightboxBlock);
         var $content = $('<div />').addClass('rbox_lightBoxContent').appendTo($lightbox);
-        var $close = $('<a />').attr('href', '').addClass('closeLightBox').text('X').appendTo($lightbox);
-        var $next = $('<a />').attr('href', '').addClass('nextLightBox').appendTo($lightbox);
-        var $prev = $('<a />').attr('href', '').addClass('prevLightBox').appendTo($lightbox);
+        var $close = $('<a />').attr('href', '').addClass('closeLightBox').html("&#x274c;").appendTo($lightbox);
+        var $next = $('<a />').attr('href', '').addClass('nextLightBox').html("&#x25b6;").appendTo($lightbox);
+        var $prev = $('<a />').attr('href', '').addClass('prevLightBox').html("&#x25c0;").appendTo($lightbox);
         $('body').append($overlay);
     }
 
@@ -75,7 +75,7 @@
                 namespace = options.namespace || "rbox",
                 
                 optionTypes = {
-                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline', 'bgcustom'],
+                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline', 'bgcustom', 'closebtnclass'],
                     'integers': ['width', 'height', 'fade'],
                     'floats': [],
                     'arrays':  [],
@@ -108,6 +108,9 @@
                     'loading': 'Loading...',
                     'closeonoverlay': true,
                     'closebtn': true,
+                    //'closebtnmarkup' : '',
+                    'navmarkup' : ['&#x274c;', '&#x25c0;', '&#x25b6;'], /*close, prev, next */
+                    'closebtnclass' : '',
                     'bgcustom': 'rgba(0, 0, 0, 0.8)', // color value for overlay
                     'beforeopen': function(opts) { return opts; }, //called before open
                     'onopen': function() { $.noop(); }, //called onopen
@@ -244,6 +247,20 @@
         }
         else {
             $('.closeLightBox').css('display', '');            
+        }
+
+        // if(opts.closebtnmarkup) {
+        //     $('.closeLightBox').html(opts.closebtnmarkup);
+        // }
+
+        if(opts.navmarkup) {
+            $('.closeLightBox').html(opts.navmarkup[0]);
+            $('.prevLightBox').html(opts.navmarkup[1]);
+            $('.nextLightBox').html(opts.navmarkup[2]);
+        }
+
+        if(opts.closebtnclass) {
+            $('.closeLightBox').addClass(opts.closebtnclass);
         }
 
         $('.rbox_lightBoxContent').empty().append(content).addClass('rbox_show_content');

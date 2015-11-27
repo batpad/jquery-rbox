@@ -63,6 +63,11 @@ img {
 
 .nextLightBox, .prevLightBox, .closeLightBox {
 	text-decoration: none;
+	padding: 10px;
+}
+
+/*.closeLightBox:after {
+	content: "\274c";
 }
 
 .nextLightBox:after {
@@ -71,20 +76,19 @@ img {
 
 .prevLightBox:after {
 	content: "\25c0";
-}
+}*/
 
 .closeLightBox {
 	position: absolute;
 	right: -14px;
 	top:-26px;
-	padding: 4px;
-	font-size: 220%;
+	font-size: 20px;
 }
 
 .nextLightBox, .prevLightBox {
 	position: absolute;
 	top: 44%;
-	font-size: 300%;
+	font-size: 20px;
 }
 
 .nextLightBox {
