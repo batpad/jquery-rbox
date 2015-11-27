@@ -2,6 +2,7 @@
  // Does rbox try to guess what type of element it is?
  // data attrs all broken
  // custom close class needs to be deactivated
+ // autoplay only works via data attr for video, not inside JS ??? fix demo accorindgly
 
 */
 

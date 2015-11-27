@@ -42,7 +42,7 @@
             }
 
             .main {
-                max-width: 800px;
+                max-width: 870px;
                 margin: 0 auto;
             }
 
@@ -70,7 +70,14 @@
         <script src="jquery-rbox.js"></script>
         <script>
             $(document).ready(function(){
-                $('.rbox-img').rbox();
+                $('.rbox-img').rbox({
+                    'type': 'image'
+                });
+
+                $('.rbox-img-caption').rbox({
+                    'type': 'image',
+                    'caption': 'Captions support <strong>HTML</strong>'
+                });
 
                 $('.rbox-gal').rbox({
                     'type': 'image',
@@ -79,11 +86,13 @@
                 }); 
 
                 $('.rbox-inline').rbox({
-                    'type': 'inline'
+                    'type': 'inline',
+                    'inline': "#element-hidden"
                 });
                 
                 $('.rbox-html').rbox({
-                    'type': 'html'
+                    'type': 'html',
+                    'html': '<p><em>HTML</em> elements can be added <strong>here</strong>.</p>'
                 });
                            
                 $('.rbox-iframe').rbox({
@@ -91,10 +100,15 @@
                 });
                                 
                 $('.rbox-ajax').rbox({
-                    'type': 'ajax'
+                    'type': 'ajax',
+                    'ajax': 'test.html'
                 });
 
-                $(".rbox-video").rbox();
+                $(".rbox-video").rbox({
+                    'type': 'video'
+                    //'video': 'http://marlon.in/media/files/boost_virat_for_reel.mp4',
+                    //'autoplay': true
+                });
 
                 $(".rbox-not-close").rbox({
                     'closeonoverlay': false
@@ -307,7 +321,7 @@ $(document.ready(function() {
                 <a href="" class="rbox-img" data-rbox-image="test.jpg"><img src="test.jpg" alt="Test Image" width="100"></a>
 <pre>
     <code class="code-block">
-// Option 1: In Markup
+// Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-img" data-rbox-image="test.jpg"&gt;
   &lt;img src="test.jpg" alt="Test Image" width="100"&gt;
 &lt;/a&gt;
@@ -319,18 +333,34 @@ $(".rbox-img").rbox({
     </code>
 </pre>
 
-                <h4>Series or Galleries</h4>
-                <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
-                <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption"><img src="test.jpg" alt="Test Image" width="100"></a>
-                <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Another caption"><img src="test2.jpg" alt="Test Image" width="100"></a>
-                <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="Caption are fun"><img src="test.jpg" alt="Test Image" width="100"></a>
+                <h4>Image: Add a caption: HTML is supported</h4>
+                <a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" data-rbox-caption="Captions support <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
 <pre>
     <code class="code-block">
-// Option 1: In Markup
-&lt;span class="rbox-gal" data-rbox-image="a.jpg" data-rbox-series="gallery"&gt;
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" 
+data-rbox-caption="Captions support &lt;strong&gt;HTML&lt;/strong&gt;"&gt;
+  &lt;img src="test2.jpg" alt="Test Image" width="100"&gt;
+&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-img").rbox({
+    'type': 'image',
+    'caption': 'Captions support &lt;strong&gt;HTML&lt;/strong&gt;'
+});
+    </code>
+</pre>
+
+                <h4>Series or Galleries</h4>
+                <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Captions support <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
+                <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption"><img src="test.jpg" alt="Test Image" width="100"></a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-series="gallery"&gt;
 Image Gallery
 &lt;/span&gt;
-&lt;span class="rbox-gal" data-rbox-image="b.jpg" data-rbox-series="gallery"&gt;
+&lt;span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-series="gallery"&gt;
 Image Gallery
 &lt;/span&gt;
 
@@ -341,11 +371,87 @@ $(".rbox-gal").rbox({
 });
     </code>
 </pre>
-             <span class="rbox-html" data-rbox-type="html" data-rbox-series="x" data-rbox-html="Add your <strong>HTML</strong> here">HTML type</span><br />
-                <span class="rbox-ajax" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
-                <span class="rbox-inline" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
+
+
+                <h4>HTML</h4>
+                <p class="rbox-html" data-rbox-type="html" data-rbox-html="<p><em>HTML</em> elements can be added <strong>here</strong>.</p>">Click to see HTML type</p>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;p class="rbox-html" data-rbox-type="html" 
+data-rbox-html="&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;">
+Click to see HTML type&lt;/p&gt;
+
+// Option 2: In JS
+$(".rbox-html").rbox({
+    'type': 'html',
+    'html': '&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;'
+});
+    </code>
+</pre>
+
+
+                <h4>AJAX</h4>
+                <a href="" class="rbox-ajax" data-rbox-type="ajax" data-rbox-ajax="test.html">Ajax type</a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-ajax" data-rbox-type="ajax" data-rbox-ajax="test.html"&gt;Ajax type&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-ajax").rbox({
+    'type': 'ajax',
+    'ajax': 'test.html'
+});
+    </code>
+</pre>
+                
+
+                <h4>Inline Content</h4>
+                <a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden">Hidden Element on page</a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden"&gt;
+Hidden Element on page&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-inline").rbox({
+    'type': 'inline',
+    'inline': '#element-hidden'
+});
+    </code>
+</pre>
+
+                <h4>HTML5 Video</h4>
+                <p><a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4">Video</a></p>
+                <p><a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-autoplay="true">Video with autoplay</a></p>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-video" data-rbox-type="video" 
+data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"&gt;Video&lt;/a&gt;
+
+&lt;a href="" class="rbox-video-autoplay" data-rbox-type="video" 
+data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-autoplay="true"&gt;
+Video with autoplay&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-video").rbox({
+    'type': 'video',
+    'video': 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4'
+});
+
+$(".rbox-video-autoplay").rbox({
+    'type': 'video',
+    'video': 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
+    'autoplay': true
+});
+    </code>
+</pre>
+                <p>Source <a href="https://peach.blender.org/about/">here</a>, License <a href="http://creativecommons.org/licenses/by/3.0/">here</a>.</p>
+
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
-                <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span><br>
                 <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
                 <span class="rbox-no-close-button" data-rbox-image="test.jpg">Hide Close icon</span><br>
                 <!-- <span class="rbox-close-markup" data-rbox-image="test.jpg">Custom close markup</span><br> -->
@@ -353,8 +459,8 @@ $(".rbox-gal").rbox({
                 <span class="rbox-custom-bg" data-rbox-image="test.jpg">Custom background overlay</span>
             </div>
 
-            <div id="testElement" style="display:none;">
-                <div class="content">Some content for a lovely lightbox!</div>
+            <div id="element-hidden" style="display:none;">
+                <div class="content">Content in a hidden div makes for a lovely lightbox!</div>
             </div>        
         </main>
     </body>
