@@ -86,7 +86,8 @@
                 }); 
 
                 $('.rbox-inline').rbox({
-                    'type': 'inline'
+                    'type': 'inline',
+                    'inline': "#element-hidden"
                 });
                 
                 $('.rbox-html').rbox({
@@ -401,7 +402,22 @@ $(".rbox-ajax").rbox({
     </code>
 </pre>
                 
-                <span class="rbox-inline" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
+
+                <h4>Inline Content</h4>
+                <a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden">Hidden Element on page</a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden"&gt;
+Hidden Element on page&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-inline").rbox({
+    'type': 'inline',
+    'inline': '#element-hidden'
+});
+    </code>
+</pre>
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
                 <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span><br>
                 <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
@@ -411,8 +427,8 @@ $(".rbox-ajax").rbox({
                 <span class="rbox-custom-bg" data-rbox-image="test.jpg">Custom background overlay</span>
             </div>
 
-            <div id="testElement" style="display:none;">
-                <div class="content">Some content for a lovely lightbox!</div>
+            <div id="element-hidden" style="display:none;">
+                <div class="content">Content in a hidden div makes for a lovely lightbox!</div>
             </div>        
         </main>
     </body>
