@@ -90,7 +90,8 @@
                 });
                 
                 $('.rbox-html').rbox({
-                    'type': 'html'
+                    'type': 'html',
+                    'html': '<p><em>HTML</em> elements can be added <strong>here</strong>.</p>'
                 });
                            
                 $('.rbox-iframe').rbox({
@@ -332,7 +333,7 @@ $(".rbox-img").rbox({
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" 
-data-rbox-caption="I am a caption"&gt;
+data-rbox-caption="Captions support &lt;strong&gt;HTML&lt;/strong&gt;"&gt;
   &lt;img src="test2.jpg" alt="Test Image" width="100"&gt;
 &lt;/a&gt;
 
@@ -350,10 +351,10 @@ $(".rbox-img").rbox({
 <pre>
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;span class="rbox-gal" data-rbox-image="a.jpg" data-rbox-series="gallery"&gt;
+&lt;span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-series="gallery"&gt;
 Image Gallery
 &lt;/span&gt;
-&lt;span class="rbox-gal" data-rbox-image="b.jpg" data-rbox-series="gallery"&gt;
+&lt;span class="rbox-gal" data-rbox-image="test.jpg" data-rbox-series="gallery"&gt;
 Image Gallery
 &lt;/span&gt;
 
@@ -364,7 +365,24 @@ $(".rbox-gal").rbox({
 });
     </code>
 </pre>
-             <span class="rbox-html" data-rbox-type="html" data-rbox-series="x" data-rbox-html="Add your <strong>HTML</strong> here">HTML type</span><br />
+
+
+                <h4>HTML</h4>
+                <p class="rbox-html" data-rbox-type="html" data-rbox-html="<p><em>HTML</em> elements can be added <strong>here</strong>.</p>">Click to see HTML type</p>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;p class="rbox-html" data-rbox-type="html" 
+data-rbox-html="&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;">
+Click to see HTML type&lt;/p&gt;
+
+// Option 2: In JS
+$(".rbox-html").rbox({
+    'type': 'html',
+    'html': '&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;'
+});
+    </code>
+</pre>
                 <span class="rbox-ajax" data-rbox-type="ajax" data-rbox-series="x" data-rbox-ajax="test.html">ajax link</span><br />
                 <span class="rbox-inline" data-rbox-type="inline" data-rbox-series="x" data-rbox-inline="#testElement">hidden element</span><br />
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
