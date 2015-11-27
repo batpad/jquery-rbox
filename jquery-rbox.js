@@ -240,10 +240,10 @@
         }
 
         if(!opts.closebtn) {
-            $('.closeLightBox').hide();
+            $('.closeLightBox').css('display', 'none');
         }
         else {
-            $('.closeLightBox').show();            
+            $('.closeLightBox').css('display', '');            
         }
 
         $('.rbox_lightBoxContent').empty().append(content).addClass('rbox_show_content');
