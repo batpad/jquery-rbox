@@ -107,6 +107,7 @@
                     'namespace': namespace,
                     'loading': 'Loading...',
                     'closeonoverlay': true,
+                    'closebtn': true,
                     'beforeopen': function(opts) { return opts; }, //called before open
                     'onopen': function() { $.noop(); }, //called onopen
                     'onclose': function() { $.noop(); }, //called onclose
@@ -226,13 +227,17 @@
         $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type);
         $('.rbox_overlay').addClass('rbox_show');
         //$('.rbox_overlay').show(opts.fade, function(){
-    
+        
         if (opts.closeonoverlay) {
             $('.rbox_overlay').bind("click", function() {
                 $('.closeLightBox').click();
             });
         }
 
+
+        if(opts.closebtn) {
+            $('.closeLightBox').css({'display': 'block'});
+        }
 
         $('.rbox_lightBoxContent').empty().append(content).addClass('rbox_show_content');
         if (opts.caption) {

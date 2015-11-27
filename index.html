@@ -69,6 +69,10 @@
                     closeonoverlay: false
                 })
 
+                $(".rbox-no-close-button").rbox({
+                    closebtn: false
+                })
+
             });
         </script>
     </head>
@@ -259,6 +263,7 @@
                 <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
                 <span class="rbox-video" data-rbox-type="video" data-rbox-series="x" data-rbox-video="http://marlon.in/media/files/boost_virat_for_reel.mp4">Test Video</span><br>
                 <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
+                <span class="rbox-no-close-button" data-rbox-image="test.jpg">Hide Close icon</span>
             </div>
 
             <div id="testElement" style="display:none;">
