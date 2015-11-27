@@ -1,1 +1,1 @@
-An attempt at a responsive jquery lightbox plugin - in development.
+A responsive jQuery lightbox, that supports images, galleries, inline content, iframes, ajax and more.
