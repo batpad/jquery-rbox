@@ -76,7 +76,7 @@
 
                 $('.rbox-img-caption').rbox({
                     'type': 'image',
-                    'caption': 'I am a caption'
+                    'caption': 'Captions support <strong>HTML</strong>'
                 });
 
                 $('.rbox-gal').rbox({
@@ -326,8 +326,8 @@ $(".rbox-img").rbox({
     </code>
 </pre>
 
-                <h4>Image: Add a caption</h4>
-                <a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" data-rbox-caption="I am a caption"><img src="test2.jpg" alt="Test Image" width="100"></a>
+                <h4>Image: Add a caption: HTML is supported</h4>
+                <a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" data-rbox-caption="Captions support <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
 <pre>
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
@@ -339,16 +339,14 @@ data-rbox-caption="I am a caption"&gt;
 // Option 2: In JS
 $(".rbox-img").rbox({
     'type': 'image',
-    'caption': 'I am a caption'
+    'caption': 'Captions support &lt;strong&gt;HTML&lt;/strong&gt;'
 });
     </code>
 </pre>
 
                 <h4>Series or Galleries</h4>
-                <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Your captions can have  <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
+                <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Captions support <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
                 <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption"><img src="test.jpg" alt="Test Image" width="100"></a>
-                <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Another caption"><img src="test2.jpg" alt="Test Image" width="100"></a>
-                <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="Caption are fun"><img src="test.jpg" alt="Test Image" width="100"></a>
 <pre>
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
