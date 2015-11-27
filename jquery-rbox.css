@@ -1,3 +1,10 @@
+/* vertical centering via display flex causes issues on smaller screens on narrower displays require the animation on the box, not the contents
+ // Does rbox try to guess what type of element it is?
+ // data attrs all broken
+ // custom close class needs to be deactivated
+
+*/
+
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -5,66 +12,25 @@
 	box-sizing: border-box; 
 }
 
-html, body  { 
-	height: 100%;
-	width: 100%;
-}
-
-body {
-	/* background-color: #fff;
-	font-family:sans-serif;
-	font-size: 16px;
-	line-height: 1.4; */
-	color: #222;
-}
-
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* COLUMNS */
-
-/*.col25 {
-	width: 25%;
-}
-
-.col33 {
-	width:33.33%;
-}
-
-.col50 {
-	width: 50%;
-}
-
-.col75 {
-	width:75%;
-}
-*/
-
-/* COLUMNS */
-
-/* GLOBAL STYLES */
-
-
-.clear { 
-	clear: both;
-} 
-
 /* LIGHTBOX */
     
 .rbox_overlay {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
 	bottom: 0;
 	right: 0;
-    background: #000;
-    background: rgba(0,0,0,0.8);
+  background: #000;
+  background: rgba(0,0,0,0.8);
 	opacity: 0;
-	text-align: center;
+	/* text-align: center; */
 	z-index: -1;
 	display: flex; /* consider adding webkit prefix if you're feeling kind */
 	align-items: center;
@@ -78,14 +44,12 @@ img {
 }
 
 .rbox_lightBoxBlock {
-/*     width: 80%;
-height: 90%;
- */    margin: 0 auto;
+	margin: 0 auto;
     margin-top: 5%;
     margin-bottom: 5%;
     position: relative;
-	text-align: center;
 	display: inline-block;
+	max-width: 80%;
 }
 
 .rbox_lightBox {
@@ -103,20 +67,32 @@ height: 90%;
 
 .nextLightBox, .prevLightBox, .closeLightBox {
 	text-decoration: none;
+	padding: 10px;
 }
+
+/*.closeLightBox:after {
+	content: "\274c";
+}
+
+.nextLightBox:after {
+	content: "\25b6";
+}
+
+.prevLightBox:after {
+	content: "\25c0";
+}*/
 
 .closeLightBox {
 	position: absolute;
 	right: -14px;
 	top:-26px;
-	padding: 4px;
-	font-size: 220%;
+	font-size: 20px;
 }
 
 .nextLightBox, .prevLightBox {
 	position: absolute;
 	top: 44%;
-	font-size: 300%;
+	font-size: 20px;
 }
 
 .nextLightBox {
@@ -137,7 +113,7 @@ height: 90%;
 	max-width: 100%;
 }
 
-.rbox_inline {
+.rbox_inline, .rbox_html {
 	background: #fff;
 	padding: 20px;
 }
@@ -146,7 +122,10 @@ height: 90%;
 
 	-webkit-animation: rotate 500ms ease-in 0ms forwards;
 	animation: rotate 500ms ease-in 0ms forwards;
+}
 
+.rbox_caption {
+	color: #fff;
 }
 
 @-webkit-keyframes rotate {
