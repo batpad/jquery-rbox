@@ -80,7 +80,7 @@
                     'floats': [],
                     'arrays':  [],
                     'objects': [],
-                    'booleans': ['fitvid', 'autoplay']
+                    'booleans': ['fitvids', 'autoplay']
                     //'functions': ['callback'] FIXME: lets not.
                 };
 
@@ -103,7 +103,7 @@
                     'height': 0,
                     'videoposter': '', //poster image path for video
                     'autoplay': false, //if type==video, if video should autoplay
-                    'fitvid': false, //whether to use fitvid plugin (must be included)
+                    'fitvids': false, //whether to use fitvids plugin (must be included)
                     'namespace': namespace,
                     'loading': 'Loading...',
                     'closeonoverlay': true,
@@ -269,18 +269,26 @@
             $('.rbox_lightBoxContent').append($caption);
         }
 
-        if (opts.fitvid) {
-            $('.rbox_lightBoxContent').find('iframe').wrap('<div class="rbox_fitvid" />');
-            $('.rbox_fitvid').fitVids();    
+        if (opts.fitvids) {
+            $('.rbox_lightBoxContent').find('iframe').wrap('<div class="rbox_fitvids" />');
+            $('.rbox_fitvids').fitVids();    
         }
         opts.onopen(opts);
         $(window).resize(function() {
+            // if ($(window).height() < $('.rbox_lightBox').height())
+            // {            
+            //     $('.rbox_overlay').css({'position':'absolute'});
+            //     $('.rbox_overlay').height($(document).height());
+            // } else {
+            //     $('.rbox_overlay').css({'position':'', 'height':''});
+            // }            
+
             if ($(window).height() < $('.rbox_lightBox').height())
             {            
-                $('.rbox_overlay').css({'position':'absolute'});
+                $('.rbox_overlay').addClass('rbox_overlay_short');
                 $('.rbox_overlay').height($(document).height());
             } else {
-                $('.rbox_overlay').css({'position':'', 'height':''});
+                $('.rbox_overlay').removeClass('rbox_overlay_short').css({'height':''});
             }            
         });
         $(window).resize();
