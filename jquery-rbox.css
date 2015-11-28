@@ -3,6 +3,15 @@
  // data attrs all broken
  // custom close class needs to be deactivated
  // autoplay only works via data attr for video, not inside JS ??? fix demo accorindgly
+// Unable to replicate loading?
+// arrays for custom navmarkup defaults
+// create arrays for custom classes for nav
+// Video type shows error in console when playing bunny video: Uncaught TypeError: Cannot read property 'pause' of undefined;
+// why data height or height is showing smaller than height i'm defining for video?
+// data height and widths for video broken? or only height? update demos accorindingly
+// is it a problem to have defaults for next prev close declared in markup as well as opts inside js?
+// why rbox-examples anchor not working?
+// replace bind with on method
 
 */
 
@@ -13,10 +22,10 @@
 	box-sizing: border-box; 
 }
 
-img {
+.rbox_lightBoxContent img, .rbox_lightBoxContent video {
     max-width: 100%;
     height: auto;
-}
+} /* Remove if this is part of your site's global styles */
 
 /* LIGHTBOX */
     
