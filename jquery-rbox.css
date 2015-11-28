@@ -1,9 +1,20 @@
-/* vertical centering via display flex causes issues on smaller screens on narrower displays require the animation on the box, not the contents
+/* 
+ // require the animation on the box, not the contents
  // Does rbox try to guess what type of element it is?
  // data attrs all broken
  // custom close class needs to be deactivated
  // autoplay only works via data attr for video, not inside JS ??? fix demo accorindgly
-
+// Unable to replicate loading?
+// arrays for custom navmarkup defaults
+// create arrays for custom classes for nav
+// Video type shows error in console when playing bunny video: Uncaught TypeError: Cannot read property 'pause' of undefined;
+// why data height or height is showing smaller than height i'm defining for video?
+// data height and widths for video broken? or only height? update demos accorindingly
+// is it a problem to have defaults for next prev close declared in markup as well as opts inside js?
+// why rbox-examples anchor not working?
+// replace bind with on method
+// Namespace
+// opt: throttle window resize;
 */
 
 * {
@@ -13,10 +24,10 @@
 	box-sizing: border-box; 
 }
 
-img {
+.rbox_lightBoxContent img, .rbox_lightBoxContent video {
     max-width: 100%;
     height: auto;
-}
+} /* Remove if this is part of your site's global styles */
 
 /* LIGHTBOX */
     
@@ -28,13 +39,18 @@ img {
   top: 0;
 	bottom: 0;
 	right: 0;
-  background: #000;
-  background: rgba(0,0,0,0.8);
+  background-color: #000;
+  background-color: rgba(0,0,0,0.8);
 	opacity: 0;
-	/* text-align: center; */
+	text-align: center;
 	z-index: -1;
 	display: flex; /* consider adding webkit prefix if you're feeling kind */
 	align-items: center;
+}
+
+.rbox_overlay_short {
+	align-items: flex-start;
+	position: absolute;
 }
 
 .rbox_show {
