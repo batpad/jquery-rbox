@@ -53,6 +53,7 @@
 
             .main {
                 max-width: 870px;
+                padding: 0 20px;
                 margin: 0 auto;
             }
 
@@ -116,7 +117,11 @@
                 });
                            
                 $('.rbox-iframe').rbox({
-                    'type': 'iframe'
+                    'type': 'iframe',
+                    'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo',
+                    'width': 960,
+                    'height': 720,
+                    'caption': 'Add a caption if you like'
                 });
                                 
                 $('.rbox-ajax').rbox({
@@ -184,8 +189,7 @@
         <ol>
             <li>
                 <p><strong>Include jQuery and the jquery-rbox.js file. </strong></p>
-<pre>
-    <code class="code-block">
+<pre><code class="code-block">
 // Include either in the head or just above closing body tag
 
 &lt;script src="http://code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;
@@ -195,16 +199,14 @@
             </li>
             <li>
                 <p><strong>Include the jquery-rbox.css stylesheet in the head tag.</strong></p>
-<pre>
-    <code class="code-block">
+<pre><code class="code-block">
 &lt;link rel="stylesheet" href="jquery-rbox.css"&gt;            
     </code>
 </pre>
             </li>
             <li>
                 <p><strong>Initialize rbox.</strong></p>
-<pre>
-    <code class="code-block">
+<pre><code class="code-block">
 $(document.ready(function() {
     $('.foo').rbox();
 });            
@@ -534,7 +536,29 @@ $(".rbox-video-height").rbox({
 </pre>
                 <p>Video Source <a href="https://peach.blender.org/about/">here</a>, License <a href="http://creativecommons.org/licenses/by/3.0/">here</a>.</p>
 
-                <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
+
+                <h4>Iframes</h4>
+                <p><a href="" class="rbox-iframe" data-rbox-type="iframe" data-rbox-iframe="//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo" data-rbox-width="960" data-rbox-height="720" data-rbox-caption="Add a caption if you like">Iframe (YouTube Video)</a></p>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-iframe" data-rbox-type="iframe" data-rbox-iframe=
+"//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo" 
+data-rbox-width="960" data-rbox-height="720"&gt;Iframe (YouTube Video)&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-iframe").rbox({
+    'type': 'iframe',
+    'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo'
+    'width': 960,
+    'height': 720,
+    'caption': 'Add a caption if you like'
+});
+
+    </code>
+</pre>
+
+                <!-- <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br /> -->
                 <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
                 <span class="rbox-no-close-button" data-rbox-image="test.jpg">Hide Close icon</span><br>
                 <!-- <span class="rbox-close-markup" data-rbox-image="test.jpg">Custom close markup</span><br> -->

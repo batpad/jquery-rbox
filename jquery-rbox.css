@@ -9,7 +9,7 @@
 // create arrays for custom classes for nav
 // Video type shows error in console when playing bunny video: Uncaught TypeError: Cannot read property 'pause' of undefined;
 // why data height or height is showing smaller than height i'm defining for video?
-// data height and widths for video broken? or only height? update demos accorindingly
+// data height and widths for video and iframes broken? or only height? update demos accorindingly. iframe is not getting height only properly
 // is it a problem to have defaults for next prev close declared in markup as well as opts inside js?
 // why rbox-examples anchor not working?
 // replace bind with on method
@@ -24,10 +24,6 @@
 	box-sizing: border-box; 
 }
 
-.rbox_lightBoxContent img, .rbox_lightBoxContent video {
-    max-width: 100%;
-    height: auto;
-} /* Remove if this is part of your site's global styles */
 
 /* LIGHTBOX */
     
@@ -124,11 +120,17 @@
 	display: inline-block;
 }
  */
-.rbox_lightBoxContent iframe {
+
+.rbox_lightBoxContent iframe, .rbox_lightBoxContent img, .rbox_lightBoxContent video {
 	display: block;
 	margin: 0 auto;
-	max-width: 100%;
+  max-width: 100%;
+  height: auto;
 }
+
+.rbox_lightBoxContent iframe {
+	border: 0;
+}  /* Remove if this is part of your site's global styles */
 
 .rbox_inline, .rbox_html {
 	background: #fff;
