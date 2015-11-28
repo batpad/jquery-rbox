@@ -1,8 +1,11 @@
 /* 
  // require the animation on the box, not the contents
  // Does rbox try to guess what type of element it is?
- // data attrs all broken
+ // data attrs all broken, e.g. data attr for closeonoverlay not working
  // custom close class needs to be deactivated
+ // closeonoverlay, closebtn broken if I ADD TO OPTION TYPES
+ // instead of fitvids, can we have js for iframe width: 100vw,
+ height: padding-bottom vw; http://stackoverflow.com/questions/25302836/responsive-video-iframes-keeping-aspect-ratio-with-only-css, doesn't seem to work if you need to constrain the parent width
  // autoplay only works via data attr for video, not inside JS ??? fix demo accorindgly
 // Unable to replicate loading?
 // arrays for custom navmarkup defaults
@@ -72,6 +75,7 @@
 
 .nextLightBox, .prevLightBox, .closeLightBox {
 	color: #777;
+	text-decoration: none;
 }
 
 .openLightBox {
@@ -121,16 +125,22 @@
 }
  */
 
-.rbox_lightBoxContent iframe, .rbox_lightBoxContent img, .rbox_lightBoxContent video {
+.rbox_lightBoxContent iframe {
+	max-width: 100%;
+	width: 100vw;
+	height: 70vh;
+}
+
+.rbox_lightBoxContent img, .rbox_lightBoxContent video {
 	display: block;
 	margin: 0 auto;
-  max-width: 100%;
-  height: auto;
+  max-width: 100%; /* Remove if this is part of your site's global styles */
+  height: auto; /* Remove if this is part of your site's global styles */
 }
 
 .rbox_lightBoxContent iframe {
 	border: 0;
-}  /* Remove if this is part of your site's global styles */
+}  /* Remove if this is part of your site's global reset/normalizing */
 
 .rbox_inline, .rbox_html {
 	background: #fff;

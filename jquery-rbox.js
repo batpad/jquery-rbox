@@ -170,7 +170,9 @@
                 callback($content, opts);
                 break;
             case "iframe":
-                var $content = $('<iframe />').attr("src", opts.iframe);
+                var aspectratio = (opts.height / opts.width) * 100;
+                //console.log(aspectratio);
+                var $content = $('<iframe />').attr({"src": opts.iframe}).css({'height': aspectratio + 'vw'});
                 if (opts.width) {
                     $content.attr("width", opts.width);
                 }
