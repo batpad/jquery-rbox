@@ -80,7 +80,7 @@
                 margin: 10px 10px 10px 0;
             }
 
-            h4 + a {
+            h4 ~ a {
                 color: white;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -184,6 +184,10 @@
 
                 $(".rbox-custom-bg").rbox({
                     'bgcustom' : 'rgba(255,255,255,0.8)'
+                })
+
+                $(".rbox-custom-bg-img").rbox({
+                    'bgcustom' : 'url(test2.jpg)'
                 })
             });
         </script>
@@ -615,9 +619,39 @@ $(".rbox-no-close-button").rbox({
 
     </code>
 </pre>
+
+
+                <h4>Custom Background Color</h4>
+                <a href="#" class="rbox-custom-bg" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-bgcustom="rgba(255, 255, 255, 0.8)">Demo: color</a>
+                <a href="#" class="rbox-custom-bg-img" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-bgcustom="url(test2.jpg)">Demo: Image</a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="#" class="rbox-custom-bg" data-rbox-type="image" data-rbox-image="test.jpg" 
+data-rbox-bgcustom="rgba(255, 255, 255, 0.8)"&gt;Demo&lt;/a&gt;
+
+&lt;a href="#" class="rbox-custom-bg-img" data-rbox-type="image" data-rbox-image="test.jpg" 
+data-rbox-bgcustom="url(test2.jpg)"&gt;Demo&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-custom-bg").rbox({
+    'type': 'image',
+    'image': 'test.jpg',
+    'bgcustom': 'rgba(255, 255, 255, 0.8)'
+});
+
+$(".rbox-custom-bg-img").rbox({
+    'type': 'image',
+    'image': 'test.jpg',
+    'bgcustom': 'url(test2.jpg)'
+});
+
+    </code>
+</pre>
+
                 <!-- <span class="rbox-close-markup" data-rbox-image="test.jpg">Custom close markup</span><br> -->
                 <span class="rbox-close-class-custom" data-rbox-image="test.jpg">Custom close class</span><br>
-                <span class="rbox-custom-bg" data-rbox-image="test.jpg">Custom background overlay</span>
+                
 
             <div id="element-hidden" style="display:none;">
                 <div class="content">Content in a hidden div makes for a lovely lightbox!</div>

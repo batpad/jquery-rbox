@@ -241,7 +241,7 @@
         }
 
         if(opts.bgcustom) {
-            $('.rbox_overlay').css({'backgroundColor': opts.bgcustom});
+            $('.rbox_overlay').css({'background': opts.bgcustom});
         }
 
         if(!opts.closebtn) {
