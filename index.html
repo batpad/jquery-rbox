@@ -20,7 +20,7 @@
             }
 
             a:hover, a:focus {
-                text-decoration: underline;
+                opacity: 0.8;
             }
             
             p {
@@ -53,6 +53,7 @@
 
             .main {
                 max-width: 870px;
+                padding: 0 20px;
                 margin: 0 auto;
             }
 
@@ -77,6 +78,16 @@
                 padding: 10px;
                 display: inline-block;
                 margin: 10px 10px 10px 0;
+            }
+
+            h4 ~ a {
+                color: white;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 90%;
+                background: seagreen;
+                padding: 10px;
+                display: inline-block;
             }
 
             .rbox-close-class {
@@ -116,7 +127,11 @@
                 });
                            
                 $('.rbox-iframe').rbox({
-                    'type': 'iframe'
+                    'type': 'iframe',
+                    'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo',                   
+                    'caption': 'Add a caption if you like',
+                    'width': 1280,
+                    'height': 720
                 });
                                 
                 $('.rbox-ajax').rbox({
@@ -149,10 +164,14 @@
                 });
 
                 $(".rbox-not-close").rbox({
+                    'type': 'image',
+                    'image': 'test2.jpg',
                     'closeonoverlay': false
                 })
 
                 $(".rbox-no-close-button").rbox({
+                    'type': 'image',
+                    'image': 'test2.jpg',
                     'closebtn': false
                 })
 
@@ -165,6 +184,10 @@
 
                 $(".rbox-custom-bg").rbox({
                     'bgcustom' : 'rgba(255,255,255,0.8)'
+                })
+
+                $(".rbox-custom-bg-img").rbox({
+                    'bgcustom' : 'url(test2.jpg)'
                 })
             });
         </script>
@@ -184,8 +207,7 @@
         <ol>
             <li>
                 <p><strong>Include jQuery and the jquery-rbox.js file. </strong></p>
-<pre>
-    <code class="code-block">
+<pre><code class="code-block">
 // Include either in the head or just above closing body tag
 
 &lt;script src="http://code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;
@@ -195,16 +217,14 @@
             </li>
             <li>
                 <p><strong>Include the jquery-rbox.css stylesheet in the head tag.</strong></p>
-<pre>
-    <code class="code-block">
+<pre><code class="code-block">
 &lt;link rel="stylesheet" href="jquery-rbox.css"&gt;            
     </code>
 </pre>
             </li>
             <li>
                 <p><strong>Initialize rbox.</strong></p>
-<pre>
-    <code class="code-block">
+<pre><code class="code-block">
 $(document.ready(function() {
     $('.foo').rbox();
 });            
@@ -339,8 +359,12 @@ $(document.ready(function() {
 
 
                 <h2 id="#rbox-examples">Examples</h2>
-     
-                <h4>Image</h4>
+                
+                <a href="#examples-types" class="button">Examples: Types</a>    
+                <a href="#examples-customize" class="button">Examples: Customize styles and UX</a>    
+
+                <h3 id="examples-types">Types</h3>
+                <h4>1. Image</h4>
                 <a href="" class="rbox-img" data-rbox-image="test.jpg"><img src="test.jpg" alt="Test Image" width="100"></a>
 <pre>
     <code class="code-block">
@@ -534,12 +558,100 @@ $(".rbox-video-height").rbox({
 </pre>
                 <p>Video Source <a href="https://peach.blender.org/about/">here</a>, License <a href="http://creativecommons.org/licenses/by/3.0/">here</a>.</p>
 
-                <span class="rbox-iframe" data-rbox-type="iframe" data-rbox-series="x" data-rbox-width="420" data-rbox-height="315" data-rbox-iframe="//www.youtube.com/embed/ndKRjmA6WNA">iframe</span><br />
-                <span class="rbox-not-close" data-rbox-image="test.jpg">Prevent closing the lightbox on clicking the overlay</span><br>
-                <span class="rbox-no-close-button" data-rbox-image="test.jpg">Hide Close icon</span><br>
+
+                <h4>Iframes</h4>
+                <a href="" class="rbox-iframe" data-rbox-type="iframe" data-rbox-iframe="//www.youtube.com/embed/GfO4XJZMGn4?rel=0&amp;controls=0&amp;showinfo=0"  data-rbox-caption="Add a caption if you like">Demo: YouTube Video</a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-iframe" data-rbox-type="iframe" data-rbox-iframe=
+"//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo" 
+data-rbox-width="960" data-rbox-height="720"&gt;Demo: Iframe (YouTube Video)&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-iframe").rbox({
+    'type': 'iframe',
+    'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo'
+    'width': 960,
+    'height': 720,
+    'caption': 'Add a caption if you like'
+});
+
+    </code>
+</pre>
+
+                <h3 id="examples-customize">Customize styles and UX</h3>    
+                <h4>Prevent closing lightbox on clicking the overlay</h4>
+                <a href="#" class="rbox-not-close" data-rbox-image="test.jpg" data-rbox-closeonoverlay="false">Demo</a>
+
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="#" class="rbox-not-close" data-rbox-image="test.jpg"&gt;
+Demo&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-not-close").rbox({
+    'type': 'image',
+    'image': 'test2.jpg',
+    'closeonoverlay': false
+});
+
+    </code>
+</pre>
+
+                <h4>Hide Close icon</h4>
+                <a href="#" class="rbox-no-close-button" data-rbox-image="test.jpg" data-rbox-closebtn="false">Demo</a>
+
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="#" class="rbox-no-close-button" data-rbox-image="test.jpg" 
+data-rbox-closebtn="false"&gt;
+Demo&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-no-close-button").rbox({
+    'type': 'image',
+    'image': 'test.jpg',
+    'closebtn': false
+});
+
+    </code>
+</pre>
+
+
+                <h4>Custom Background Color</h4>
+                <a href="#" class="rbox-custom-bg" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-bgcustom="rgba(255, 255, 255, 0.8)">Demo: color</a>
+                <a href="#" class="rbox-custom-bg-img" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-bgcustom="url(test2.jpg)">Demo: Image</a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="#" class="rbox-custom-bg" data-rbox-type="image" data-rbox-image="test.jpg" 
+data-rbox-bgcustom="rgba(255, 255, 255, 0.8)"&gt;Demo&lt;/a&gt;
+
+&lt;a href="#" class="rbox-custom-bg-img" data-rbox-type="image" data-rbox-image="test.jpg" 
+data-rbox-bgcustom="url(test2.jpg)"&gt;Demo&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-custom-bg").rbox({
+    'type': 'image',
+    'image': 'test.jpg',
+    'bgcustom': 'rgba(255, 255, 255, 0.8)'
+});
+
+$(".rbox-custom-bg-img").rbox({
+    'type': 'image',
+    'image': 'test.jpg',
+    'bgcustom': 'url(test2.jpg)'
+});
+
+    </code>
+</pre>
+
                 <!-- <span class="rbox-close-markup" data-rbox-image="test.jpg">Custom close markup</span><br> -->
                 <span class="rbox-close-class-custom" data-rbox-image="test.jpg">Custom close class</span><br>
-                <span class="rbox-custom-bg" data-rbox-image="test.jpg">Custom background overlay</span>
+                
 
             <div id="element-hidden" style="display:none;">
                 <div class="content">Content in a hidden div makes for a lovely lightbox!</div>

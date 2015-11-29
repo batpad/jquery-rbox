@@ -1,15 +1,18 @@
 /* 
  // require the animation on the box, not the contents
  // Does rbox try to guess what type of element it is?
- // data attrs all broken
+ // data attrs all broken, e.g. data attr for closeonoverlay not working
  // custom close class needs to be deactivated
+ // closeonoverlay, closebtn broken if I ADD TO OPTION TYPES
+ // instead of fitvids, can we have js for iframe width: 100vw,
+ height: padding-bottom vw; http://stackoverflow.com/questions/25302836/responsive-video-iframes-keeping-aspect-ratio-with-only-css, doesn't seem to work if you need to constrain the parent width
  // autoplay only works via data attr for video, not inside JS ??? fix demo accorindgly
 // Unable to replicate loading?
 // arrays for custom navmarkup defaults
 // create arrays for custom classes for nav
 // Video type shows error in console when playing bunny video: Uncaught TypeError: Cannot read property 'pause' of undefined;
 // why data height or height is showing smaller than height i'm defining for video?
-// data height and widths for video broken? or only height? update demos accorindingly
+// data height and widths for video and iframes broken? or only height? update demos accorindingly. iframe is not getting height only properly
 // is it a problem to have defaults for next prev close declared in markup as well as opts inside js?
 // why rbox-examples anchor not working?
 // replace bind with on method
@@ -24,10 +27,6 @@
 	box-sizing: border-box; 
 }
 
-.rbox_lightBoxContent img, .rbox_lightBoxContent video {
-    max-width: 100%;
-    height: auto;
-} /* Remove if this is part of your site's global styles */
 
 /* LIGHTBOX */
     
@@ -39,8 +38,8 @@
   top: 0;
 	bottom: 0;
 	right: 0;
-  background-color: #000;
-  background-color: rgba(0,0,0,0.8);
+  background: #000;
+  background: rgba(0,0,0,0.8);
 	opacity: 0;
 	text-align: center;
 	z-index: -1;
@@ -76,6 +75,7 @@
 
 .nextLightBox, .prevLightBox, .closeLightBox {
 	color: #777;
+	text-decoration: none;
 }
 
 .openLightBox {
@@ -124,11 +124,23 @@
 	display: inline-block;
 }
  */
+
 .rbox_lightBoxContent iframe {
+	max-width: 100%;
+	width: 100vw;
+	height: 70vh;
+}
+
+.rbox_lightBoxContent img, .rbox_lightBoxContent video {
 	display: block;
 	margin: 0 auto;
-	max-width: 100%;
+  max-width: 100%; /* Remove if this is part of your site's global styles */
+  height: auto; /* Remove if this is part of your site's global styles */
 }
+
+.rbox_lightBoxContent iframe {
+	border: 0;
+}  /* Remove if this is part of your site's global reset/normalizing */
 
 .rbox_inline, .rbox_html {
 	background: #fff;

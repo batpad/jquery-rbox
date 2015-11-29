@@ -170,7 +170,9 @@
                 callback($content, opts);
                 break;
             case "iframe":
-                var $content = $('<iframe />').attr("src", opts.iframe);
+                var aspectratio = (opts.height / opts.width) * 100;
+                //console.log(aspectratio);
+                var $content = $('<iframe />').attr({"src": opts.iframe}).css({'height': aspectratio + 'vw'});
                 if (opts.width) {
                     $content.attr("width", opts.width);
                 }
@@ -239,7 +241,7 @@
         }
 
         if(opts.bgcustom) {
-            $('.rbox_overlay').css({'backgroundColor': opts.bgcustom});
+            $('.rbox_overlay').css({'background': opts.bgcustom});
         }
 
         if(!opts.closebtn) {
