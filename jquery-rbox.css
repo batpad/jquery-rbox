@@ -18,68 +18,56 @@
 // replace bind with on method
 // Namespace
 // opt: throttle window resize;
+// Instead of allowing user to customize nav markup via js, why not just allow him to add a parent per instance and change the content after link for that?
 */
 
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	
 	box-sizing: border-box; 
 }
 
-
-/* LIGHTBOX */
-    
 .rbox_overlay {
+	text-align: center;
+  background: #000;
+  background: rgba(0, 0, 0, 0.8);
+	opacity: 0;
   width: 100%;
   height: 100%;
+	display: flex;
+	align-items: center;
   position: fixed;
   left: 0;
   top: 0;
 	bottom: 0;
 	right: 0;
-  background: #000;
-  background: rgba(0,0,0,0.8);
-	opacity: 0;
-	text-align: center;
 	z-index: -1;
-	display: flex; /* consider adding webkit prefix if you're feeling kind */
-	align-items: center;
 }
 
 .rbox_overlay_short {
-	align-items: flex-start;
+	align-items: flex-start; /* for when rbox content is taller than viewport */
 	position: absolute;
 }
 
 .rbox_show {
 	opacity: 1;
-    z-index: 10000;
-	-webkit-transition: all 0.2s ease-in-out;
+  z-index: 10000;
 	transition: all 0.2s ease-in-out;
 }
 
 .rbox_lightBoxBlock {
-	margin: 0 auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    position: relative;
-	display: inline-block;
+	margin: 25px auto;
 	max-width: 80%;
+  position: relative;
+	display: inline-block;
 }
 
 .rbox_lightBox {
-    padding: 10px;
-    position: relative;
+  padding: 10px;
+  position: relative;
 }
 
 .nextLightBox, .prevLightBox, .closeLightBox {
 	color: #777;
 	text-decoration: none;
-}
-
-.openLightBox {
-	position: relative;
 }
 
 .nextLightBox, .prevLightBox, .closeLightBox {
@@ -134,13 +122,13 @@
 .rbox_lightBoxContent img, .rbox_lightBoxContent video {
 	display: block;
 	margin: 0 auto;
-  max-width: 100%; /* Remove if this is part of your site's global styles */
-  height: auto; /* Remove if this is part of your site's global styles */
+  max-width: 100%; /* Remove if included in your site's global styles */
+  height: auto; /* Remove if included in your site's global styles */
 }
 
 .rbox_lightBoxContent iframe {
-	border: 0;
-}  /* Remove if this is part of your site's global reset/normalizing */
+	border: 0; /* Remove if included in your site's global styles */
+}
 
 .rbox_inline, .rbox_html {
 	background: #fff;
@@ -148,8 +136,6 @@
 }
 
 .rbox_show_content {
-
-	-webkit-animation: rotate 500ms ease-in 0ms forwards;
 	animation: rotate 500ms ease-in 0ms forwards;
 }
 
@@ -157,18 +143,8 @@
 	color: #fff;
 }
 
-@-webkit-keyframes rotate {
-	100% {
-		-webkit-transform: rotate(360deg);
-	}
-}
-
 @keyframes rotate {
 	100% {
 		transform: rotate(360deg);
 	}
 }
-
-/* END LIGHTBOX */
-
-
