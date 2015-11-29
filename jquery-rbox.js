@@ -32,11 +32,11 @@
             $('.rbox_overlay').unbind("click");
             var opts = $('.rbox_lightBox').data("rboxOpts");
             $('.rbox_overlay').removeClass('rbox_show');
-            $('.rbox_lightBoxContent').removeClass('rbox_show_content');
+            $('.rbox_lightBoxContent');
             //$('.rbox_overlay').fadeOut(opts.fade, function() {
                 //alert("im your friend");
             opts.beforeclose(opts);
-            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
+            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type).removeClass('rbox_show_content');
             $('.rbox_lightBoxContent').html(opts.loading);
             if (opts.scrollTop) {
                 $(window).scrollTop(opts.scrollTop);
@@ -230,8 +230,9 @@
 
         //var $content = $(content);
         $('.rbox_lightBox').data("rboxOpts", opts);
-        $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type);
+        $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type).addClass('rbox_show_content');
         $('.rbox_overlay').addClass('rbox_show');
+
         //$('.rbox_overlay').show(opts.fade, function(){
         
         if (opts.closeonoverlay) {
@@ -265,7 +266,7 @@
             $('.closeLightBox').addClass(opts.closebtnclass);
         }
 
-        $('.rbox_lightBoxContent').empty().append(content).addClass('rbox_show_content');
+        $('.rbox_lightBoxContent').empty().append(content);
         if (opts.caption) {
             var $caption = $('<div />').addClass('rbox_caption').html(opts.caption);
             $('.rbox_lightBoxContent').append($caption);
