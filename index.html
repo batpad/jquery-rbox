@@ -49,6 +49,7 @@
                 display: block;
                 padding: 0px 15px;
                 border-left: 4px solid seagreen;
+                overflow: auto;
             }
 
             .main {
@@ -403,8 +404,7 @@ $(".rbox-img").rbox({
 <pre>
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" 
-data-rbox-caption="Captions support &lt;strong&gt;HTML&lt;/strong&gt;"&gt;
+&lt;a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" data-rbox-caption="Captions support &lt;strong&gt;HTML&lt;/strong&gt;"&gt;
   &lt;img src="test2.jpg" alt="Test Image" width="100"&gt;
 &lt;/a&gt;
 
@@ -444,8 +444,7 @@ $(".rbox-gal").rbox({
 <pre>
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;p class="rbox-html" data-rbox-type="html" 
-data-rbox-html="&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;">
+&lt;p class="rbox-html" data-rbox-type="html" data-rbox-html="&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;">
 Demo&lt;/p&gt;
 
 // Option 2: In JS
@@ -494,8 +493,7 @@ $(".rbox-inline").rbox({
 <pre>
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;a href="" class="rbox-video" data-rbox-type="video" 
-data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"&gt;Video&lt;/a&gt;
+&lt;a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"&gt;Video&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-video").rbox({
@@ -510,9 +508,7 @@ $(".rbox-video").rbox({
 <pre>
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;a href="" class="rbox-videoposter" data-rbox-type="video" 
-data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" 
-data-rbox-videoposter="http://placehold.it/400x300"&gt;Video&lt;/a&gt;
+&lt;a href="" class="rbox-videoposter" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-videoposter="http://placehold.it/400x300"&gt;Video&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-video-videoposter").rbox({
@@ -530,8 +526,7 @@ $(".rbox-video-videoposter").rbox({
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
 
-&lt;a href="" class="rbox-video-autoplay" data-rbox-type="video" 
-data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-autoplay="true"&gt;
+&lt;a href="" class="rbox-video-autoplay" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-autoplay="true"&gt;
 Video with autoplay&lt;/a&gt;
 
 // Option 2: In JS
@@ -551,12 +546,10 @@ $(".rbox-video-autoplay").rbox({
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
 
-&lt;a href="" class="rbox-video-width" data-rbox-type="video" 
-data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-width="150"&gt;
+&lt;a href="" class="rbox-video-width" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-width="150"&gt;
 HTML5 Video with width declared&lt;/a&gt;
 
-&lt;a href="" class="rbox-video-height" data-rbox-type="video" 
-data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-height="50"&gt;
+&lt;a href="" class="rbox-video-height" data-rbox-type="video" data-rbox-video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" data-rbox-height="50"&gt;
 HTML5 Video with height declared&lt;/a&gt;
 
 // Option 2: In JS
@@ -624,8 +617,7 @@ $(".rbox-not-close").rbox({
 <pre>
     <code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;a href="#" class="rbox-no-close-button" data-rbox-image="test.jpg" 
-data-rbox-closebtn="false"&gt;
+&lt;a href="#" class="rbox-no-close-button" data-rbox-image="test.jpg" data-rbox-closebtn="false"&gt;
 Demo&lt;/a&gt;
 
 // Option 2: In JS
@@ -668,9 +660,30 @@ $(".rbox-custom-bg-img").rbox({
 </pre>
 
             <h4>Custom Animation</h4>
-            <a href="" class="rbox-animate-rotate" data-rbox-image="test.jpg">Demo Rotate</a>
+            <p>You can any animations of your choice (via classes) in your stylesheet, and reference these classes via the <code>animate</code> option.</p>
+            <a href="" class="rbox-animate-rotate" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_rotate">Demo Rotate</a>
 
-            <a href="" class="rbox-animate-zoom-out" data-rbox-image="test.jpg">Demo Zoom-in</a>
+            <a href="" class="rbox-animate-zoom-out" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_zoom_out">Demo Zoom-in</a>
+
+            <pre><code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="" class="rbox-animate-rotate" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_rotate">Demo Rotate&lt;/a&gt 
+&lt;a href="" class="rbox-animate-zoom-out" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_zoom_out"&gt;Demo Zoom-in&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-animate-rotate").rbox({
+    'type': 'image',
+    'image': 'test.jpg',
+    'animate': 'rbox_animate_rotate'
+});
+
+$(".rbox-animate-zoom-out").rbox({
+    'type': 'image',
+    'image': 'test.jpg',
+    'animate': 'rbox_animate_zoom_out'
+});
+
+</code></pre>
 
 
                 <!-- <span class="rbox-close-markup" data-rbox-image="test.jpg">Custom close markup</span><br> -->
