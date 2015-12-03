@@ -132,7 +132,7 @@
 	border: 0; /* Remove if included in your site's global styles */
 }
 
-.rbox_inline, .rbox_html {
+.rbox-inline, .rbox-html {
 	background: #fff;
 	padding: 20px;
 }
@@ -145,7 +145,7 @@
 	animation: zoom-out 300ms ease-in 0ms forwards;
 }
 
-.rbox_caption {
+.rbox-caption {
 	color: #fff;
 }
 

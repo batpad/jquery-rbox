@@ -35,7 +35,7 @@
             $('.rbox-content');
 
             opts.beforeclose(opts);
-            $('.rbox-wrap').removeClass('rbox_' + opts.type);
+            $('.rbox-wrap').removeClass('rbox-' + opts.type);
             if (opts.animate) {
                 $('.rbox-wrap').removeClass(opts.animate);
             }
@@ -52,7 +52,7 @@
             e.preventDefault();
             e.stopPropagation();
             var opts = $('.rbox').data("rboxOpts");
-            $('.rbox-wrap').removeClass('rbox_' + opts.type);
+            $('.rbox-wrap').removeClass('rbox-' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index + 1).click();
@@ -62,7 +62,7 @@
             e.preventDefault();
             e.stopPropagation();
             var opts = $('.rbox').data("rboxOpts");
-            $('.rbox-wrap').removeClass('rbox_' + opts.type);
+            $('.rbox-wrap').removeClass('rbox-' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index - 1).click();
@@ -202,7 +202,7 @@
             case "video":
                 var $content = $('<video />')
                             .attr("controls", "controls")
-                            .addClass("rbox_videoElement")
+                            .addClass("rbox-video-element")
                             .attr("src", opts.video);
                 if (opts.autoplay) {
                     $content.attr("autoplay", "autoplay");
@@ -217,7 +217,7 @@
                     $content.attr("height", opts.height);
                 }
                 opts.beforeclose = function() {
-                    var $video = $('.rbox_videoElement');
+                    var $video = $('.rbox-video-element');
                     console.log($video);
                     $video.get(0).pause();
                     $video.remove();
@@ -231,7 +231,7 @@
 
         //var $content = $(content);
         $('.rbox').data("rboxOpts", opts);
-        $('.rbox-wrap').addClass('rbox_' + opts.type);
+        $('.rbox-wrap').addClass('rbox-' + opts.type);
         $('.rbox-overlay').addClass('rbox-overlay--show');
 
         if (opts.animate) {
@@ -271,13 +271,13 @@
 
         $('.rbox-content').empty().append(content);
         if (opts.caption) {
-            var $caption = $('<div />').addClass('rbox_caption').html(opts.caption);
+            var $caption = $('<div />').addClass('rbox-caption').html(opts.caption);
             $('.rbox-content').append($caption);
         }
 
         if (opts.fitvids) {
-            $('.rbox-content').find('iframe').wrap('<div class="rbox_fitvids" />');
-            $('.rbox_fitvids').fitVids();    
+            $('.rbox-content').find('iframe').wrap('<div class="rbox-fitvids" />');
+            $('.rbox-fitvids').fitVids();    
         }
         opts.onopen(opts);
         $(window).resize(function() {
