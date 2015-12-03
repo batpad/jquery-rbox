@@ -97,6 +97,35 @@
                 border: 1px solid;
                 padding: 5px;
             }
+
+            .rbox-animate-rotate {
+                animation: rotate 400ms ease-in 0ms forwards;
+            }
+
+            .rbox-animate-zoom-out {
+                animation: zoom-out 300ms ease-in 0ms forwards;
+            }
+
+            .rbox-caption {
+                color: #fff;
+                padding: 10px 0 0 0;
+            }
+
+            @keyframes rotate {
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes zoom-out {
+                0% {
+                    transform: scaleX(1.3) scaleY(1.3);
+                }
+
+                100% {
+                    transform: scaleX(1) scaleY(1);
+                }
+            }
         </style>
     
         <!--<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->

@@ -5,9 +5,9 @@
         var $lightboxBlock = $('<div />').addClass('rbox-wrap').appendTo($overlay);
         var $lightbox = $('<div />').addClass('rbox').appendTo($lightboxBlock);
         var $content = $('<div />').addClass('rbox-content').appendTo($lightbox);
-        var $close = $('<a />').attr('href', '').addClass('rbox-close').html("&#x274c;").appendTo($lightbox);
-        var $next = $('<a />').attr('href', '').addClass('rbox-next').html("&#x25b6;").appendTo($lightbox);
-        var $prev = $('<a />').attr('href', '').addClass('rbox-prev').html("&#x25c0;").appendTo($lightbox);
+        var $close = $('<a />').attr({'href': '', 'aria-label': 'Close Button'}).addClass('rbox-close').html("&#x274c;").appendTo($lightbox);
+        var $next = $('<a />').attr({'href': '', 'aria-label': 'Next Button'}).addClass('rbox-next').html("&#x25b6;").appendTo($lightbox);
+        var $prev = $('<a />').attr({'href': '', 'aria-label': 'Previous Button'}).addClass('rbox-prev').html("&#x25c0;").appendTo($lightbox);
         $('body').append($overlay);
     }
 
@@ -35,7 +35,7 @@
             $('.rbox-content');
 
             opts.beforeclose(opts);
-            $('.rbox-wrap').removeClass('rbox-' + opts.type);
+            $('.rbox-wrap').removeClass('rbox-wrap--' + opts.type);
             if (opts.animate) {
                 $('.rbox-wrap').removeClass(opts.animate);
             }
@@ -52,7 +52,7 @@
             e.preventDefault();
             e.stopPropagation();
             var opts = $('.rbox').data("rboxOpts");
-            $('.rbox-wrap').removeClass('rbox-' + opts.type);
+            $('.rbox-wrap').removeClass('rbox-wrap--' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index + 1).click();
@@ -62,7 +62,7 @@
             e.preventDefault();
             e.stopPropagation();
             var opts = $('.rbox').data("rboxOpts");
-            $('.rbox-wrap').removeClass('rbox-' + opts.type);
+            $('.rbox-wrap').removeClass('rbox-wrap--' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index - 1).click();
@@ -231,7 +231,7 @@
 
         //var $content = $(content);
         $('.rbox').data("rboxOpts", opts);
-        $('.rbox-wrap').addClass('rbox-' + opts.type);
+        $('.rbox-wrap').addClass('rbox-wrap--' + opts.type);
         $('.rbox-overlay').addClass('rbox-overlay--show');
 
         if (opts.animate) {

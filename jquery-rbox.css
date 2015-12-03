@@ -1,6 +1,8 @@
 /* 
+  // is loading working? Not sure how to replicate and customize it?
  // optimization: add option to customize fade timing or screw it, since we now allow custom animations;
- // is fade broken? ideally, i would like to make it happen via CSS
+ // add aria role
+ // have codepen demos for examples for animations
  // Does rbox try to guess what type of element it is?
  // data attrs all broken, e.g. data attr for closeonoverlay not working
  // custom close class needs to be deactivated
@@ -8,7 +10,6 @@
  // instead of fitvids, can we have js for iframe width: 100vw,
  height: padding-bottom vw; http://stackoverflow.com/questions/25302836/responsive-video-iframes-keeping-aspect-ratio-with-only-css, doesn't seem to work if you need to constrain the parent width
  // autoplay only works via data attr for video, not inside JS ??? fix demo accorindgly
-// Unable to replicate loading?
 // arrays for custom navmarkup defaults
 // create arrays for custom classes for nav
 // duplication in code in js for next previous logic
@@ -32,8 +33,6 @@
   background: #000;
   background: rgba(0, 0, 0, 0.8);
 	opacity: 0;
-  width: 100%;
-  height: 100%;
 	display: flex;
 	align-items: center;
   position: fixed;
@@ -60,6 +59,11 @@
 	max-width: 80%;
   position: relative;
 	display: inline-block;
+}
+
+.rbox-wrap--inline, .rbox-wrap--html, .rbox-wrap--ajax {
+	background: #fff;
+	padding: 20px;
 }
 
 .rbox {
@@ -110,11 +114,6 @@
 	left: -30px;	
 }
 
-/* .rbox-content {
-	display: inline-block;
-}
- */
-
 .rbox-content iframe {
 	max-width: 100%;
 	width: 100vw;
@@ -130,37 +129,4 @@
 
 .rbox-content iframe {
 	border: 0; /* Remove if included in your site's global styles */
-}
-
-.rbox-inline, .rbox-html {
-	background: #fff;
-	padding: 20px;
-}
-
-.rbox-animate-rotate {
-	animation: rotate 400ms ease-in 0ms forwards;
-}
-
-.rbox-animate-zoom-out {
-	animation: zoom-out 300ms ease-in 0ms forwards;
-}
-
-.rbox-caption {
-	color: #fff;
-}
-
-@keyframes rotate {
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes zoom-out {
-	0% {
-		transform: scaleX(1.3) scaleY(1.3);
-	}
-
-	100% {
-		transform: scaleX(1) scaleY(1);
-	}
 }
