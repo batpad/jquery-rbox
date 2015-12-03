@@ -1,5 +1,5 @@
 /* 
- // require the animation on the box, not the contents
+ // add custom animations in codepen later or separate file later and move them out of core file
  // Does rbox try to guess what type of element it is?
  // data attrs all broken, e.g. data attr for closeonoverlay not working
  // custom close class needs to be deactivated
@@ -136,8 +136,12 @@
 	padding: 20px;
 }
 
-.rbox_show_content {
-	animation: rotate 500ms ease-in 0ms forwards;
+.rbox_animate_rotate {
+	animation: rotate 400ms ease-in 0ms forwards;
+}
+
+.rbox_animate_zoom_out {
+	animation: zoom-out 300ms ease-in 0ms forwards;
 }
 
 .rbox_caption {
@@ -147,5 +151,15 @@
 @keyframes rotate {
 	100% {
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes zoom-out {
+	0% {
+		transform: scaleX(1.3) scaleY(1.3);
+	}
+
+	100% {
+		transform: scaleX(1) scaleY(1);
 	}
 }
