@@ -36,7 +36,10 @@
             //$('.rbox_overlay').fadeOut(opts.fade, function() {
                 //alert("im your friend");
             opts.beforeclose(opts);
-            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type).removeClass('rbox_show_content');
+            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
+            if (opts.animate) {
+                $('.rbox_lightBoxBlock').removeClass(opts.animate);
+            }
             $('.rbox_lightBoxContent').html(opts.loading);
             if (opts.scrollTop) {
                 $(window).scrollTop(opts.scrollTop);
@@ -112,6 +115,7 @@
                     'navmarkup' : ['&#x274c;', '&#x25c0;', '&#x25b6;'], /*close, prev, next */
                     'closebtnclass' : '',
                     'bgcustom': 'rgba(0, 0, 0, 0.8)', // color value for overlay
+                    'animate': '',
                     'beforeopen': function(opts) { return opts; }, //called before open
                     'onopen': function() { $.noop(); }, //called onopen
                     'onclose': function() { $.noop(); }, //called onclose
@@ -230,11 +234,15 @@
 
         //var $content = $(content);
         $('.rbox_lightBox').data("rboxOpts", opts);
-        $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type).addClass('rbox_show_content');
+        $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type);
         $('.rbox_overlay').addClass('rbox_show');
 
         //$('.rbox_overlay').show(opts.fade, function(){
         
+        if (opts.animate) {
+            $('.rbox_lightBoxBlock').addClass(opts.animate);
+        }
+
         if (opts.closeonoverlay) {
             $('.rbox_overlay').bind("click", function() {
                 $('.closeLightBox').click();

@@ -189,6 +189,18 @@
                 $(".rbox-custom-bg-img").rbox({
                     'bgcustom' : 'url(test2.jpg)'
                 })
+
+                $(".rbox-animate-rotate").rbox({
+                    'type': 'image',
+                    'image': 'test.jpg',
+                    'animate': 'rbox_animate_rotate'
+                });
+
+                $(".rbox-animate-zoom-out").rbox({
+                    'type': 'image',
+                    'image': 'test.jpg',
+                    'animate': 'rbox_animate_zoom_out'
+                });
             });
         </script>
     </head>
@@ -654,6 +666,12 @@ $(".rbox-custom-bg-img").rbox({
 
     </code>
 </pre>
+
+            <h4>Custom Animation</h4>
+            <a href="" class="rbox-animate-rotate" data-rbox-image="test.jpg">Demo Rotate</a>
+
+            <a href="" class="rbox-animate-zoom-out" data-rbox-image="test.jpg">Demo Zoom-in</a>
+
 
                 <!-- <span class="rbox-close-markup" data-rbox-image="test.jpg">Custom close markup</span><br> -->
                 <span class="rbox-close-class-custom" data-rbox-image="test.jpg">Custom close class</span><br>
