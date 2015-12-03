@@ -1,5 +1,6 @@
 /* 
- // add custom animations in codepen later or separate file later and move them out of core file
+ // optimization: add option to customize fade timing or screw it, since we now allow custom animations;
+ // is fade broken? ideally, i would like to make it happen via CSS
  // Does rbox try to guess what type of element it is?
  // data attrs all broken, e.g. data attr for closeonoverlay not working
  // custom close class needs to be deactivated
@@ -41,6 +42,7 @@
 	bottom: 0;
 	right: 0;
 	z-index: -1;
+	transition: opacity 0.25s ease; /* animates the fade */
 }
 
 .rbox_overlay_short {
@@ -51,7 +53,6 @@
 .rbox_show {
 	opacity: 1;
   z-index: 10000;
-	transition: all 0.2s ease-in-out;
 }
 
 .rbox_lightBoxBlock {

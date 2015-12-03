@@ -33,8 +33,7 @@
             var opts = $('.rbox_lightBox').data("rboxOpts");
             $('.rbox_overlay').removeClass('rbox_show');
             $('.rbox_lightBoxContent');
-            //$('.rbox_overlay').fadeOut(opts.fade, function() {
-                //alert("im your friend");
+
             opts.beforeclose(opts);
             $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
             if (opts.animate) {
@@ -78,8 +77,8 @@
                 namespace = options.namespace || "rbox",
                 
                 optionTypes = {
-                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline', 'bgcustom', 'closebtnclass'],
-                    'integers': ['width', 'height', 'fade'],
+                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline', 'bgcustom', 'closebtnclass', 'animate'],
+                    'integers': ['width', 'height'],
                     'floats': [],
                     'arrays':  [],
                     'objects': [],
@@ -87,7 +86,6 @@
                     //'functions': ['callback'] FIXME: lets not.
                 };
 
-            //alert("hi");                
             var $this = $(this),
                 dataOptions = $.extend(options, $this.getDataOptions(optionTypes, namespace));
             //console.log("dataOptions", dataOptions);
@@ -101,7 +99,6 @@
                     'inline': '', //selector for element on page whose innerHTML is the content
                     'ajax': '', //URL to fetch ajax content from
                     'caption': '', //optional caption
-                    'fade': 300, //fade delay
                     'width': 0,
                     'height': 0,
                     'videoposter': '', //poster image path for video
@@ -237,8 +234,6 @@
         $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type);
         $('.rbox_overlay').addClass('rbox_show');
 
-        //$('.rbox_overlay').show(opts.fade, function(){
-        
         if (opts.animate) {
             $('.rbox_lightBoxBlock').addClass(opts.animate);
         }
