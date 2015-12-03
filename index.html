@@ -2,8 +2,9 @@
 
 <html>
     <head>
+        <title>jQuery Rbox Plugin: Demos and Documentation</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href='http://fonts.googleapis.com/css?family=Lato:400italic,400,700|Anonymous+Pro' rel='stylesheet' type='text/css'>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Lato:400italic,400,700|Anonymous+Pro' rel='stylesheet' type='text/css'> -->
         <link rel="stylesheet" href="jquery-rbox.css" />
         <style>
             body {
@@ -98,7 +99,8 @@
             }
         </style>
     
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <!--<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
+        <script src="jquery-1.11.3.min.js"></script>
         <script src="jquery-rbox.js"></script>
         <script>
             $(document).ready(function(){
@@ -265,10 +267,12 @@ $(document.ready(function() {
         <h2 id="rbox-options">Options</h2>
         <table class="table-options">
             <thead>
-                <td>Name</td>
-                <td>Type</td>
-                <td>Default</td>
-                <td>Description</td>
+                <tr>
+                    <td>Name</td>
+                    <td>Type</td>
+                    <td>Default</td>
+                    <td>Description</td>
+                </tr>
             </thead>
             <tr>
                 <td>series</td>
@@ -661,14 +665,14 @@ $(".rbox-custom-bg-img").rbox({
 
             <h4>Custom Animation</h4>
             <p>You can any animations of your choice (via classes) in your stylesheet, and reference these classes via the <code>animate</code> option.</p>
-            <a href="" class="rbox-animate-rotate" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_rotate">Demo Rotate</a>
+            <a href="" class="rbox-animate-rotate" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_rotate">Demo Rotate</a>
 
-            <a href="" class="rbox-animate-zoom-out" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_zoom_out">Demo Zoom-in</a>
+            <a href="" class="rbox-animate-zoom-out" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_zoom_out">Demo Zoom-in</a>
 
             <pre><code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;a href="" class="rbox-animate-rotate" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_rotate">Demo Rotate&lt;/a&gt 
-&lt;a href="" class="rbox-animate-zoom-out" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_zoom_out"&gt;Demo Zoom-in&lt;/a&gt;
+&lt;a href="" class="rbox-animate-rotate" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_rotate">Demo Rotate&lt;/a&gt; 
+&lt;a href="" class="rbox-animate-zoom-out" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_zoom_out"&gt;Demo Zoom-in&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-animate-rotate").rbox({
