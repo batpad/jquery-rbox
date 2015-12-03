@@ -27,7 +27,7 @@
 	box-sizing: border-box; 
 }
 
-.rbox_overlay {
+.rbox-overlay {
 	text-align: center;
   background: #000;
   background: rgba(0, 0, 0, 0.8);
@@ -45,90 +45,90 @@
 	transition: opacity 0.25s ease; /* animates the fade */
 }
 
-.rbox_overlay_short {
-	align-items: flex-start; /* for when rbox content is taller than viewport */
-	position: absolute;
-}
-
-.rbox_show {
+.rbox-overlay--show {
 	opacity: 1;
   z-index: 10000;
 }
 
-.rbox_lightBoxBlock {
+.rbox-overlay--short {
+	align-items: flex-start; /* for when rbox content is taller than viewport */
+	position: absolute;
+}
+
+.rbox-wrap {
 	margin: 25px auto;
 	max-width: 80%;
   position: relative;
 	display: inline-block;
 }
 
-.rbox_lightBox {
+.rbox {
   padding: 10px;
   position: relative;
 }
 
-.nextLightBox, .prevLightBox, .closeLightBox {
+.rbox-next, .rbox-prev, .rbox-close {
 	color: #777;
 	text-decoration: none;
 }
 
-.nextLightBox, .prevLightBox, .closeLightBox {
+.rbox-next, .rbox-prev, .rbox-close {
 	text-decoration: none;
 	padding: 10px;
 }
 
-/*.closeLightBox:after {
+/*.rbox-close:after {
 	content: "\274c";
 }
 
-.nextLightBox:after {
+.rbox-next:after {
 	content: "\25b6";
 }
 
-.prevLightBox:after {
+.rbox-prev:after {
 	content: "\25c0";
 }*/
 
-.closeLightBox {
+.rbox-close {
 	position: absolute;
 	right: -14px;
 	top:-26px;
 	font-size: 20px;
 }
 
-.nextLightBox, .prevLightBox {
+.rbox-next, .rbox-prev {
 	position: absolute;
 	top: 44%;
 	font-size: 20px;
 }
 
-.nextLightBox {
+.rbox-next {
 	right: -30px;	
 }
 
-.prevLightBox {
+.rbox-prev {
 	left: -30px;	
 }
 
-/* .rbox_lightBoxContent {
+/* .rbox-content {
 	display: inline-block;
 }
  */
 
-.rbox_lightBoxContent iframe {
+.rbox-content iframe {
 	max-width: 100%;
 	width: 100vw;
 	height: 70vh;
 }
 
-.rbox_lightBoxContent img, .rbox_lightBoxContent video {
+.rbox-content img, .rbox-content video {
 	display: block;
 	margin: 0 auto;
   max-width: 100%; /* Remove if included in your site's global styles */
   height: auto; /* Remove if included in your site's global styles */
 }
 
-.rbox_lightBoxContent iframe {
+.rbox-content iframe {
 	border: 0; /* Remove if included in your site's global styles */
 }
 
@@ -137,11 +137,11 @@
 	padding: 20px;
 }
 
-.rbox_animate_rotate {
+.rbox-animate-rotate {
 	animation: rotate 400ms ease-in 0ms forwards;
 }
 
-.rbox_animate_zoom_out {
+.rbox-animate-zoom-out {
 	animation: zoom-out 300ms ease-in 0ms forwards;
 }
 

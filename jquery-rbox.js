@@ -1,23 +1,23 @@
 (function($) {
     
     function createInitialElements() {
-        var $overlay = $('<div />').addClass('rbox_overlay');
-        var $lightboxBlock = $('<div />').addClass('rbox_lightBoxBlock').appendTo($overlay);
-        var $lightbox = $('<div />').addClass('rbox_lightBox').appendTo($lightboxBlock);
-        var $content = $('<div />').addClass('rbox_lightBoxContent').appendTo($lightbox);
-        var $close = $('<a />').attr('href', '').addClass('closeLightBox').html("&#x274c;").appendTo($lightbox);
-        var $next = $('<a />').attr('href', '').addClass('nextLightBox').html("&#x25b6;").appendTo($lightbox);
-        var $prev = $('<a />').attr('href', '').addClass('prevLightBox').html("&#x25c0;").appendTo($lightbox);
+        var $overlay = $('<div />').addClass('rbox-overlay');
+        var $lightboxBlock = $('<div />').addClass('rbox-wrap').appendTo($overlay);
+        var $lightbox = $('<div />').addClass('rbox').appendTo($lightboxBlock);
+        var $content = $('<div />').addClass('rbox-content').appendTo($lightbox);
+        var $close = $('<a />').attr('href', '').addClass('rbox-close').html("&#x274c;").appendTo($lightbox);
+        var $next = $('<a />').attr('href', '').addClass('rbox-next').html("&#x25b6;").appendTo($lightbox);
+        var $prev = $('<a />').attr('href', '').addClass('rbox-prev').html("&#x25c0;").appendTo($lightbox);
         $('body').append($overlay);
     }
 
     $.fn.rbox = function(options) {
-        if ($('.rbox_overlay').length === 0) {
+        if ($('.rbox-overlay').length === 0) {
             createInitialElements();
         }
         options = options || {};
         var that = this;
-        $('.rbox_lightBoxBlock').click(function(e) {
+        $('.rbox-wrap').click(function(e) {
             e.stopPropagation();
         });
 
@@ -26,20 +26,20 @@
             this.attr('data-rbox-series', options.series);
         }
         
-        $('.closeLightBox').click(function(e) {
+        $('.rbox-close').click(function(e) {
             e.preventDefault();
             e.stopPropagation();
-            $('.rbox_overlay').unbind("click");
-            var opts = $('.rbox_lightBox').data("rboxOpts");
-            $('.rbox_overlay').removeClass('rbox_show');
-            $('.rbox_lightBoxContent');
+            $('.rbox-overlay').unbind("click");
+            var opts = $('.rbox').data("rboxOpts");
+            $('.rbox-overlay').removeClass('rbox-overlay--show');
+            $('.rbox-content');
 
             opts.beforeclose(opts);
-            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
+            $('.rbox-wrap').removeClass('rbox_' + opts.type);
             if (opts.animate) {
-                $('.rbox_lightBoxBlock').removeClass(opts.animate);
+                $('.rbox-wrap').removeClass(opts.animate);
             }
-            $('.rbox_lightBoxContent').html(opts.loading);
+            $('.rbox-content').html(opts.loading);
             if (opts.scrollTop) {
                 $(window).scrollTop(opts.scrollTop);
             }
@@ -48,21 +48,21 @@
             //$('.lightBoxContent').data("rboxOpts", false);
         });
 
-        $('.nextLightBox').click(function(e) {
+        $('.rbox-next').click(function(e) {
             e.preventDefault();
             e.stopPropagation();
-            var opts = $('.rbox_lightBox').data("rboxOpts");
-            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
+            var opts = $('.rbox').data("rboxOpts");
+            $('.rbox-wrap').removeClass('rbox_' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index + 1).click();
         });
 
-        $('.prevLightBox').click(function(e) {
+        $('.rbox-prev').click(function(e) {
             e.preventDefault();
             e.stopPropagation();
-            var opts = $('.rbox_lightBox').data("rboxOpts");
-            $('.rbox_lightBoxBlock').removeClass('rbox_' + opts.type);
+            var opts = $('.rbox').data("rboxOpts");
+            $('.rbox-wrap').removeClass('rbox_' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
             $thisSeries.eq(index - 1).click();
@@ -134,17 +134,17 @@
                     var thisIndex = $thisSeries.index($this) + 1;
                     //console.log($thisSeries, total, thisIndex);
                     if (thisIndex >= total) {
-                        $('.nextLightBox').hide();
+                        $('.rbox-next').hide();
                     } else {
-                        $('.nextLightBox').show();
+                        $('.rbox-next').show();
                     }
                     if (thisIndex == 1) {
-                        $('.prevLightBox').hide();
+                        $('.rbox-prev').hide();
                     } else {
-                        $('.prevLightBox').show();
+                        $('.rbox-prev').show();
                     }
                 } else {
-                    $('.nextLightBox, .prevLightBox').hide();
+                    $('.rbox-next, .rbox-prev').hide();
                 }
                 opts.scrollTop = $(window).scrollTop();
                 $(window).scrollTop(0);
@@ -183,7 +183,7 @@
                 callback($content, opts);
                 break;
             case "ajax":
-                $('.rbox_lightBoxContent').html(opts.loading);
+                $('.rbox-content').html(opts.loading);
                 $.get(opts.ajax, function(data) {
                     $content = $('<div />').html(data);
                     callback($content, opts);
@@ -230,71 +230,71 @@
     function showLightbox(content, opts) {
 
         //var $content = $(content);
-        $('.rbox_lightBox').data("rboxOpts", opts);
-        $('.rbox_lightBoxBlock').addClass('rbox_' + opts.type);
-        $('.rbox_overlay').addClass('rbox_show');
+        $('.rbox').data("rboxOpts", opts);
+        $('.rbox-wrap').addClass('rbox_' + opts.type);
+        $('.rbox-overlay').addClass('rbox-overlay--show');
 
         if (opts.animate) {
-            $('.rbox_lightBoxBlock').addClass(opts.animate);
+            $('.rbox-wrap').addClass(opts.animate);
         }
 
         if (opts.closeonoverlay) {
-            $('.rbox_overlay').bind("click", function() {
-                $('.closeLightBox').click();
+            $('.rbox-overlay').bind("click", function() {
+                $('.rbox-close').click();
             });
         }
 
         if(opts.bgcustom) {
-            $('.rbox_overlay').css({'background': opts.bgcustom});
+            $('.rbox-overlay').css({'background': opts.bgcustom});
         }
 
         if(!opts.closebtn) {
-            $('.closeLightBox').css('display', 'none');
+            $('.rbox-close').css('display', 'none');
         }
         else {
-            $('.closeLightBox').css('display', '');            
+            $('.rbox-close').css('display', '');            
         }
 
         // if(opts.closebtnmarkup) {
-        //     $('.closeLightBox').html(opts.closebtnmarkup);
+        //     $('.rbox-close').html(opts.closebtnmarkup);
         // }
 
         if(opts.navmarkup) {
-            $('.closeLightBox').html(opts.navmarkup[0]);
-            $('.prevLightBox').html(opts.navmarkup[1]);
-            $('.nextLightBox').html(opts.navmarkup[2]);
+            $('.rbox-close').html(opts.navmarkup[0]);
+            $('.rbox-prev').html(opts.navmarkup[1]);
+            $('.rbox-next').html(opts.navmarkup[2]);
         }
 
         if(opts.closebtnclass) {
-            $('.closeLightBox').addClass(opts.closebtnclass);
+            $('.rbox-close').addClass(opts.closebtnclass);
         }
 
-        $('.rbox_lightBoxContent').empty().append(content);
+        $('.rbox-content').empty().append(content);
         if (opts.caption) {
             var $caption = $('<div />').addClass('rbox_caption').html(opts.caption);
-            $('.rbox_lightBoxContent').append($caption);
+            $('.rbox-content').append($caption);
         }
 
         if (opts.fitvids) {
-            $('.rbox_lightBoxContent').find('iframe').wrap('<div class="rbox_fitvids" />');
+            $('.rbox-content').find('iframe').wrap('<div class="rbox_fitvids" />');
             $('.rbox_fitvids').fitVids();    
         }
         opts.onopen(opts);
         $(window).resize(function() {
-            // if ($(window).height() < $('.rbox_lightBox').height())
+            // if ($(window).height() < $('.rbox').height())
             // {            
-            //     $('.rbox_overlay').css({'position':'absolute'});
-            //     $('.rbox_overlay').height($(document).height());
+            //     $('.rbox-overlay').css({'position':'absolute'});
+            //     $('.rbox-overlay').height($(document).height());
             // } else {
-            //     $('.rbox_overlay').css({'position':'', 'height':''});
+            //     $('.rbox-overlay').css({'position':'', 'height':''});
             // }            
 
-            if ($(window).height() < $('.rbox_lightBox').height())
+            if ($(window).height() < $('.rbox').height())
             {            
-                $('.rbox_overlay').addClass('rbox_overlay_short');
-                $('.rbox_overlay').height($(document).height());
+                $('.rbox-overlay').addClass('rbox-overlay--short');
+                $('.rbox-overlay').height($(document).height());
             } else {
-                $('.rbox_overlay').removeClass('rbox_overlay_short').css({'height':''});
+                $('.rbox-overlay').removeClass('rbox-overlay--short').css({'height':''});
             }            
         });
         $(window).resize();

@@ -193,16 +193,16 @@
                     'bgcustom' : 'url(test2.jpg)'
                 })
 
-                $(".rbox-animate-rotate").rbox({
+                $(".rbox-animate-eg-rotate").rbox({
                     'type': 'image',
                     'image': 'test.jpg',
-                    'animate': 'rbox_animate_rotate'
+                    'animate': 'rbox-animate-rotate'
                 });
 
-                $(".rbox-animate-zoom-out").rbox({
+                $(".rbox-animate-eg-zoom-out").rbox({
                     'type': 'image',
                     'image': 'test.jpg',
-                    'animate': 'rbox_animate_zoom_out'
+                    'animate': 'rbox-animate-zoom-out'
                 });
             });
         </script>
@@ -668,26 +668,26 @@ $(".rbox-custom-bg-img").rbox({
 
             <h4>Custom Animation</h4>
             <p>You can any animations of your choice (via classes) in your stylesheet, and reference these classes via the <code>animate</code> option.</p>
-            <a href="" class="rbox-animate-rotate" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_rotate">Demo Rotate</a>
+            <a href="" class="rbox-animate-eg-rotate" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox-animate-rotate">Demo Rotate</a>
 
-            <a href="" class="rbox-animate-zoom-out" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_zoom_out">Demo Zoom-in</a>
+            <a href="" class="rbox-animate-eg-zoom-out" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox-animate-zoom-out">Demo Zoom-in</a>
 
             <pre><code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;a href="" class="rbox-animate-rotate" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_rotate">Demo Rotate&lt;/a&gt; 
-&lt;a href="" class="rbox-animate-zoom-out" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox_animate_zoom_out"&gt;Demo Zoom-in&lt;/a&gt;
+&lt;a href="" class="rbox-animate-eg-rotate" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox-animate-rotate">Demo Rotate&lt;/a&gt; 
+&lt;a href="" class="rbox-animate-eg-zoom-out" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox-animate-zoom-out"&gt;Demo Zoom-in&lt;/a&gt;
 
 // Option 2: In JS
-$(".rbox-animate-rotate").rbox({
+$(".rbox-animate-eg-rotate").rbox({
     'type': 'image',
     'image': 'test.jpg',
-    'animate': 'rbox_animate_rotate'
+    'animate': 'rbox-animate-rotate'
 });
 
-$(".rbox-animate-zoom-out").rbox({
+$(".rbox-animate-eg-zoom-out").rbox({
     'type': 'image',
     'image': 'test.jpg',
-    'animate': 'rbox_animate_zoom_out'
+    'animate': 'rbox-animate-zoom-out'
 });
 
 </code></pre>
