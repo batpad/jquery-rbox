@@ -1,15 +1,16 @@
 /* 
   // is loading working? Not sure how to replicate and customize it?
  // optimization: add option to customize fade timing or screw it, since we now allow custom animations;
+ // shd we close the lighbox on esc
  // add aria role
  // have codepen demos for examples for animations
  // Does rbox try to guess what type of element it is?
  // data attrs all broken, e.g. data attr for closeonoverlay not working
  // custom close class needs to be deactivated
+ // on closing gallery type, scroll is not handled, 
  // closeonoverlay, closebtn broken if I ADD TO OPTION TYPES
  // instead of fitvids, can we have js for iframe width: 100vw,
  height: padding-bottom vw; http://stackoverflow.com/questions/25302836/responsive-video-iframes-keeping-aspect-ratio-with-only-css, doesn't seem to work if you need to constrain the parent width
- // autoplay only works via data attr for video, not inside JS ??? fix demo accorindgly
 // arrays for custom navmarkup defaults
 // create arrays for custom classes for nav
 // duplication in code in js for next previous logic
@@ -74,11 +75,11 @@
 .rbox-next, .rbox-prev, .rbox-close {
 	color: #777;
 	text-decoration: none;
+	padding: 10px;
 }
 
-.rbox-next, .rbox-prev, .rbox-close {
-	text-decoration: none;
-	padding: 10px;
+.rbox-next:hover, .rbox-next:focus, .rbox-prev:hover, .rbox-prev:focus, .rbox-close:hover, .rbox-close:focus {
+	color: #aaa;
 }
 
 /*.rbox-close:after {

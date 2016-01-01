@@ -245,6 +245,7 @@
     function showLightbox(content, opts) {
 
         //var $content = $(content);
+        //$(".rbox-wrap").attr('tabindex', '0').focus();
         $('.rbox').data("rboxOpts", opts);
         $('.rbox-wrap').addClass('rbox-wrap--' + opts.type);
         $('.rbox-overlay').addClass('rbox-overlay--show');
