@@ -77,12 +77,27 @@
                 namespace = options.namespace || "rbox",
                 
                 optionTypes = {
-                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline', 'bgcustom', 'closebtnclass', 'animate'],
+                    'strings': [
+                        'series',
+                        'type',
+                        'image',
+                        'iframe',
+                        'html',
+                        'ajax',
+                        'video',
+                        'videoposter',
+                        'caption',
+                        'loading',
+                        'inline',
+                        'bgcustom',
+                        'closebtnclass',
+                        'animate'
+                    ],
                     'integers': ['width', 'height'],
                     'floats': [],
-                    'arrays':  [],
+                    'arrays':  ['navmarkup'],
                     'objects': [],
-                    'booleans': ['fitvids', 'autoplay']
+                    'booleans': ['fitvids', 'autoplay', 'closeonoverlay', 'closebtn']
                     //'functions': ['callback'] FIXME: lets not.
                 };
 
@@ -345,7 +360,18 @@
         }); 
         $.each(optionTypes['booleans'], function(i,v) {
             var attr = prefix + v;
-            options[v] = $element.hasAttr(attr) ? $element.attr(attr) == 'true' : false;
+            if ($element.hasAttr(attr)) {
+                if ($element.attr(attr) === 'true') {
+                    options[v] = true;
+                } else if ($element.attr(attr) === 'false') {
+                    options[v] = false;
+                } else {
+                    options[v] = undefined;
+                }
+            } else {
+                options[v] = undefined;
+            }
+            options[v] = $element.hasAttr(attr) ? $element.attr(attr) === 'true' : undefined;
         });  
         $.each(optionTypes['objects'], function(i,v) {
             var attr = prefix + v;
