@@ -5,11 +5,9 @@
  // add aria role
  // have codepen demos for examples for animations
  // Does rbox try to guess what type of element it is?
- // data attrs all broken, e.g. data attr for closeonoverlay not working
  // custom close class needs to be deactivated
- // on closing gallery type, scroll is not handled, 
- // closeonoverlay, closebtn broken if I ADD TO OPTION TYPES
- // instead of fitvids, can we have js for iframe width: 100vw,
+ // on closing gallery type, scroll is not handled
+  // instead of fitvids, can we have js for iframe width: 100vw,
  height: padding-bottom vw; http://stackoverflow.com/questions/25302836/responsive-video-iframes-keeping-aspect-ratio-with-only-css, doesn't seem to work if you need to constrain the parent width
 // arrays for custom navmarkup defaults
 // create arrays for custom classes for nav
