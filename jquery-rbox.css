@@ -1,7 +1,7 @@
 /* 
   // is loading working? Not sure how to replicate and customize it?
  // optimization: add option to customize fade timing or screw it, since we now allow custom animations;
- // shd we close the lighbox on esc
+ // add docs for close on esc disabled
  // add aria role
  // have codepen demos for examples for animations
  // Does rbox try to guess what type of element it is?
@@ -10,12 +10,13 @@
   // instead of fitvids, can we have js for iframe width: 100vw,
  height: padding-bottom vw; http://stackoverflow.com/questions/25302836/responsive-video-iframes-keeping-aspect-ratio-with-only-css, doesn't seem to work if you need to constrain the parent width
 // arrays for custom navmarkup defaults
+// separate close and next prev
 // create arrays for custom classes for nav
 // duplication in code in js for next previous logic
 // Video type shows error in console when playing bunny video: Uncaught TypeError: Cannot read property 'pause' of undefined;
 // why data height or height is showing smaller than height i'm defining for video?
 // data height and widths for video and iframes broken? or only height? update demos accorindingly. iframe is not getting height only properly
-// is it a problem to have defaults for next prev close declared in markup as well as opts inside js?
+// is it a problem to have defaults for next prev close declared in CSS as well as opts inside js?
 // why rbox-examples anchor not working?
 // replace bind with on method
 // Namespace

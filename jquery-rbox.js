@@ -30,6 +30,7 @@
             e.preventDefault();
             e.stopPropagation();
             $('.rbox-overlay').unbind("click");
+            
             $(window).off("keyup", closeOnEsc);
             var opts = $('.rbox').data("rboxOpts");
             $('.rbox-overlay').removeClass('rbox-overlay--show');
@@ -104,7 +105,7 @@
                     'floats': [],
                     'arrays':  ['navmarkup'],
                     'objects': [],
-                    'booleans': ['fitvids', 'autoplay', 'closeonoverlay', 'closebtn']
+                    'booleans': ['fitvids', 'autoplay', 'closeonoverlay', 'closebtn', 'closeonesc']
                     //'functions': ['callback'] FIXME: lets not.
                 };
 
@@ -130,6 +131,7 @@
                     'loading': 'Loading...',
                     'closeonoverlay': true,
                     'closebtn': true,
+                    'closeonesc': true,
                     //'closebtnmarkup' : '',
                     'navmarkup' : ['&#x274c;', '&#x25c0;', '&#x25b6;'], /*close, prev, next */
                     'closebtnclass' : '',
@@ -150,7 +152,10 @@
                 e.preventDefault(); 
                 //alert("hello");        
 //                console.log(dataOptions);
-                $(window).on("keyup", closeOnEsc);
+                if (opts.closeonesc) {
+                   $(window).on("keyup", closeOnEsc);
+                }
+
                 if (opts.series) {
                     var $thisSeries = that.filter(opts.seriesSelector);
                     var total = $thisSeries.length;
