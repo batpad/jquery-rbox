@@ -55,6 +55,9 @@
             $('.rbox-wrap').removeClass('rbox-wrap--' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
+            if (opts.scrollTop) {
+                $(window).scrollTop(opts.scrollTop);
+            }
             $thisSeries.eq(index + 1).click();
         });
 
@@ -65,6 +68,9 @@
             $('.rbox-wrap').removeClass('rbox-wrap--' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
+            if (opts.scrollTop) {
+                $(window).scrollTop(opts.scrollTop);
+            }
             $thisSeries.eq(index - 1).click();
         });        
 
