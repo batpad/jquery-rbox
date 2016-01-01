@@ -77,12 +77,27 @@
                 namespace = options.namespace || "rbox",
                 
                 optionTypes = {
-                    'strings': ['series', 'type', 'image', 'iframe', 'html', 'ajax', 'video', 'videoposter', 'caption', 'loading', 'inline', 'bgcustom', 'closebtnclass', 'animate'],
+                    'strings': [
+                        'series',
+                        'type',
+                        'image',
+                        'iframe',
+                        'html',
+                        'ajax',
+                        'video',
+                        'videoposter',
+                        'caption',
+                        'loading',
+                        'inline',
+                        'bgcustom',
+                        'closebtnclass',
+                        'animate'
+                    ],
                     'integers': ['width', 'height'],
                     'floats': [],
-                    'arrays':  [],
+                    'arrays':  ['navmarkup'],
                     'objects': [],
-                    'booleans': ['fitvids', 'autoplay']
+                    'booleans': ['fitvids', 'autoplay', 'closeonoverlay', 'closebtn']
                     //'functions': ['callback'] FIXME: lets not.
                 };
 
