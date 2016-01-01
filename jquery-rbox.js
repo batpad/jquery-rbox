@@ -30,6 +30,7 @@
             e.preventDefault();
             e.stopPropagation();
             $('.rbox-overlay').unbind("click");
+            $(window).off("keyup", closeOnEsc);
             var opts = $('.rbox').data("rboxOpts");
             $('.rbox-overlay').removeClass('rbox-overlay--show');
             $('.rbox-content');
@@ -55,6 +56,9 @@
             $('.rbox-wrap').removeClass('rbox-wrap--' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
+            if (opts.scrollTop) {
+                $(window).scrollTop(opts.scrollTop);
+            }
             $thisSeries.eq(index + 1).click();
         });
 
@@ -65,6 +69,9 @@
             $('.rbox-wrap').removeClass('rbox-wrap--' + opts.type);
             var $thisSeries = that.filter(opts.seriesSelector);
             var index = $thisSeries.index(opts.$anchor);
+            if (opts.scrollTop) {
+                $(window).scrollTop(opts.scrollTop);
+            }
             $thisSeries.eq(index - 1).click();
         });        
 
@@ -143,6 +150,7 @@
                 e.preventDefault(); 
                 //alert("hello");        
 //                console.log(dataOptions);
+                $(window).on("keyup", closeOnEsc);
                 if (opts.series) {
                     var $thisSeries = that.filter(opts.seriesSelector);
                     var total = $thisSeries.length;
@@ -171,6 +179,12 @@
         });
 
     };
+
+    function closeOnEsc(e) {
+        if (e.keyCode === 27) {
+            $('.rbox-close').click();
+        }
+    }
 
     function getLightBoxContent(opts, callback) {
         switch (opts.type) {
