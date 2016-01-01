@@ -360,7 +360,18 @@
         }); 
         $.each(optionTypes['booleans'], function(i,v) {
             var attr = prefix + v;
-            options[v] = $element.hasAttr(attr) ? $element.attr(attr) == 'true' : false;
+            if ($element.hasAttr(attr)) {
+                if ($element.attr(attr) === 'true') {
+                    options[v] = true;
+                } else if ($element.attr(attr) === 'false') {
+                    options[v] = false;
+                } else {
+                    options[v] = undefined;
+                }
+            } else {
+                options[v] = undefined;
+            }
+            options[v] = $element.hasAttr(attr) ? $element.attr(attr) === 'true' : undefined;
         });  
         $.each(optionTypes['objects'], function(i,v) {
             var attr = prefix + v;
