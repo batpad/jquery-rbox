@@ -216,11 +216,17 @@
 
                 $(".rbox-custom-bg").rbox({
                     'bgcustom' : 'rgba(255,255,255,0.8)'
-                })
+                });
+
+                $(".rbox-custom-bginner").rbox({
+                    'type': 'html',
+                    'html': '<p>Customize the background color.</p>',
+                    'bgcustominner' : '#555'
+                });
 
                 $(".rbox-custom-bg-img").rbox({
                     'bgcustom' : 'url(test2.jpg)'
-                })
+                });
 
                 $(".rbox-animate-eg-rotate").rbox({
                     'type': 'image',
@@ -398,6 +404,12 @@ $(document.ready(function() {
                 <td>bgcustom</td>
                 <td>string</td>
                 <td>rgba(0, 0, 0, 0.8)</td>
+                <td>customize the background overlay for each instance of the rbox, if you like. use rgba for transparent backgrounds.</td>
+            </tr>
+            <tr>
+                <td>bgcustominner</td>
+                <td>string</td>
+                <td>#fff</td>
                 <td>customize the background overlay for each instance of the rbox, if you like. use rgba for transparent backgrounds.</td>
             </tr>
         </table>
@@ -692,6 +704,24 @@ $(".rbox-custom-bg-img").rbox({
     'bgcustom': 'url(test2.jpg)'
 });
 
+    </code>
+</pre>
+
+
+                <h4>Custom Background Color for Inner Content</h4>
+                <p>Use for HTML, Inline, Ajax</p>
+                <a href="#" class="rbox-custom-bginner" data-rbox-type="html" data-rbox-html="<p>Customize the background color.</p>" data-rbox-bgcustominner="#555">Demo: inner content background color</a>
+<pre>
+    <code class="code-block">
+// Option 1: In Markup (with data attributes)
+&lt;a href="#" class="rbox-custom-bginner" data-rbox-type="html" data-rbox-html="&lt;p&gt;Customize the background color.&lt;/p&gt;" data-rbox-bgcustominner="#555"&gt;Demo&lt;/a&gt;
+
+// Option 2: In JS
+$(".rbox-custom-bginner").rbox({
+    'type': 'html',
+    'html': '&lt;p&gt;Customize the background color.&lt;/p&gt;',
+    'bgcustominner': '#555'
+});
     </code>
 </pre>
 

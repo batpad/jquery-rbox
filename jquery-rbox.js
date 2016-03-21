@@ -98,6 +98,7 @@
                         'loading',
                         'inline',
                         'bgcustom',
+                        'bgcustominner',
                         'closebtnclass',
                         'animate'
                     ],
@@ -136,6 +137,7 @@
                     'navmarkup' : ['&#x274c;', '&#x25c0;', '&#x25b6;'], /*close, prev, next */
                     'closebtnclass' : '',
                     'bgcustom': 'rgba(0, 0, 0, 0.8)', // color value for overlay
+                    'bgcustominner' : '#fff', // color value for inner div
                     'animate': '',
                     'beforeopen': function(opts) { return opts; }, //called before open
                     'onopen': function() { $.noop(); }, //called onopen
@@ -281,6 +283,10 @@
 
         if(opts.bgcustom) {
             $('.rbox-overlay').css({'background': opts.bgcustom});
+        }
+
+        if(opts.bgcustominner) {
+            $('.rbox-wrap--inline, .rbox-wrap--html, .rbox-wrap--ajax').css({'background': opts.bgcustominner});
         }
 
         if(!opts.closebtn) {
