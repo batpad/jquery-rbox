@@ -81,7 +81,6 @@
 
      
         return this.each(function() {
-            //console.log("options", options);
                 namespace = options.namespace || "rbox",
                 
                 optionTypes = {
@@ -112,7 +111,6 @@
 
             var $this = $(this),
                 dataOptions = $.extend(options, $this.getDataOptions(optionTypes, namespace));
-            //console.log("dataOptions", dataOptions);
             var opts = $.extend({
                     'series': '', //string, series this lightbox is a part of
                     'type': 'image', //type of content - image, iframe, html or ajax
@@ -133,7 +131,6 @@
                     'closeonoverlay': true,
                     'closebtn': true,
                     'closeonesc': true,
-                    //'closebtnmarkup' : '',
                     'navmarkup' : ['&#x274c;', '&#x25c0;', '&#x25b6;'], /*close, prev, next */
                     'closebtnclass' : '',
                     'bgcustom': 'rgba(0, 0, 0, 0.8)', // color value for overlay
@@ -152,8 +149,6 @@
 
             $this.click(function(e) {
                 e.preventDefault(); 
-                //alert("hello");        
-//                console.log(dataOptions);
                 if (opts.closeonesc) {
                    $(window).on("keyup", closeOnEsc);
                 }
@@ -162,7 +157,6 @@
                     var $thisSeries = that.filter(opts.seriesSelector);
                     var total = $thisSeries.length;
                     var thisIndex = $thisSeries.index($this) + 1;
-                    //console.log($thisSeries, total, thisIndex);
                     if (thisIndex >= total) {
                         $('.rbox-next').hide();
                     } else {
@@ -208,7 +202,6 @@
                 break;
             case "iframe":
                 var aspectratio = (opts.height / opts.width) * 100;
-                //console.log(aspectratio);
                 var $content = $('<iframe />').attr({"src": opts.iframe}).css({'height': aspectratio + 'vw'});
                 if (opts.width) {
                     $content.attr("width", opts.width);
@@ -254,7 +247,6 @@
                 }
                 opts.beforeclose = function() {
                     var $video = $('.rbox-video-element');
-                    console.log($video);
                     $video.get(0).pause();
                     $video.remove();
                 };
