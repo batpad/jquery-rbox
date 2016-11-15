@@ -314,13 +314,6 @@
         }
         opts.onopen(opts);
         $(window).resize(function() {
-            // if ($(window).height() < $('.rbox').height())
-            // {            
-            //     $('.rbox-overlay').css({'position':'absolute'});
-            //     $('.rbox-overlay').height($(document).height());
-            // } else {
-            //     $('.rbox-overlay').css({'position':'', 'height':''});
-            // }            
 
             if ($(window).height() < $('.rbox').height())
             {            
@@ -331,7 +324,6 @@
             }            
         });
         $(window).resize();
-        //});            
     }
 
 
