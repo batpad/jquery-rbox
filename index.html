@@ -132,6 +132,114 @@
         <!--<script src="jquery-1.11.3.min.js"></script>-->
         <script src="jquery-rbox.js"></script>
         <script>
+            $(document).ready(function(){
+                $('.rbox-img').rbox({
+                    'type': 'image',
+                    'closeonesc': false
+                });
+
+                $('.rbox-img-caption').rbox({
+                    'type': 'image',
+                    'caption': 'Captions support <strong>HTML</strong>'
+                });
+
+                $('.rbox-gal').rbox({
+                    'type': 'image',
+                    'series': 'image-gallery',
+                    'navmarkup': [, "<img src='http://placehold.it/20x20'>",]
+                }); 
+
+                $('.rbox-inline').rbox({
+                    'type': 'inline',
+                    'inline': "#element-hidden"
+                });
+                
+                $('.rbox-html').rbox({
+                    'type': 'html',
+                    'html': '<p><em>HTML</em> elements can be added <strong>here</strong>.</p>'
+                });
+                           
+                $('.rbox-iframe').rbox({
+                    'type': 'iframe',
+                    'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo',                   
+                    'caption': 'Add a caption if you like',
+                    'width': 1280,
+                    'height': 720
+                });
+                                
+                $('.rbox-ajax').rbox({
+                    'type': 'ajax',
+                    'ajax': 'test.html'
+                });
+
+                $(".rbox-video").rbox({
+                    'type': 'video',
+                    'video': 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4'
+                });
+
+                $(".rbox-video-videoposter").rbox({
+                    'type': 'video',
+                    'video': 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
+                    'videoposter': 'http://placehold.it/400x400'
+                });
+
+                $(".rbox-video-width").rbox({
+                    'type': 'video',
+                    'video': 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
+                    'width': 150
+                });
+
+                $(".rbox-video-height").rbox({
+                    'type': 'video',
+                    'video': 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
+                    'height': 50 // DOES NOT WORK W/O WIDTH???
+                });
+
+                $(".rbox-not-close").rbox({
+                    'type': 'image',
+                    'image': 'test2.jpg',
+                    'closeonoverlay': false
+                })
+
+                $(".rbox-no-close-button").rbox({
+                    'type': 'image',
+                    'image': 'test2.jpg',
+                    'closebtn': false
+                })
+
+                // $('.rbox-close-markup').rbox({
+                // });
+
+                $('.rbox-close-class-custom').rbox({
+                    'closebtnclass': 'rbox-close-class'
+                });
+
+                $(".rbox-custom-bg").rbox({
+                    'bgcustom' : 'rgba(255,255,255,0.8)'
+                });
+
+                $(".rbox-custom-bginner").rbox({
+                    'type': 'html',
+                    'html': '<p>Customize the background color.</p>',
+                    'bgcustominner' : '#555'
+                });
+
+                $(".rbox-custom-bg-img").rbox({
+                    'bgcustom' : 'url(test2.jpg)'
+                });
+
+                $(".rbox-animate-eg-rotate").rbox({
+                    'type': 'image',
+                    'image': 'test.jpg',
+                    'animate': 'rbox-animate-rotate'
+                });
+
+                $(".rbox-animate-eg-zoom-out").rbox({
+                    'type': 'image',
+                    'image': 'test.jpg',
+                    'animate': 'rbox-animate-zoom-out'
+                });
+            });
         </script>
     </head>
 
