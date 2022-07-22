@@ -245,11 +245,13 @@
                 if (opts.height) {
                     $content.attr("height", opts.height);
                 }
+                /*
                 opts.beforeclose = function() {
                     var $video = $('.rbox-video-element');
                     $video.get(0).pause();
                     $video.remove();
                 };
+                */
                 callback($content, opts);
                 break;
         }

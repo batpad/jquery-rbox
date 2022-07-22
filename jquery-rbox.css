@@ -1,10 +1,12 @@
 /* 
+// add example for custom nav markup
+// add disable styles for next prev
+// HTML5 Video with Custom Videoposter demo
   // is loading working? Not sure how to replicate and customize it?
- // optimization: add option to customize fade timing or screw it, since we now allow custom animations;
- // add docs for close on esc disabled
+  // add docs for close on esc disabled
  // add aria role
- // have codepen demos for examples for animations
- // Does rbox try to guess what type of element it is?
+
+
  // custom close class needs to be deactivated
  // on closing gallery type, scroll is not handled
   // instead of fitvids, can we have js for iframe width: 100vw,
@@ -17,11 +19,9 @@
 // why data height or height is showing smaller than height i'm defining for video?
 // data height and widths for video and iframes broken? or only height? update demos accorindingly. iframe is not getting height only properly
 // is it a problem to have defaults for next prev close declared in CSS as well as opts inside js?
-// why rbox-examples anchor not working?
 // replace bind with on method
 // Namespace
 // opt: throttle window resize;
-// Instead of allowing user to customize nav markup via js, why not just allow him to add a parent per instance and change the content after link for that?
 */
 
 * {
