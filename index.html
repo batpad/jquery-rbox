@@ -1,520 +1,530 @@
 <!doctype html>
 <html>
-    <head>
-        <title>jQuery Rbox Plugin: Demos and Documentation</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="jquery-rbox.css" />
-        <style>
-            body {
-                font-family: 'Lato', sans-serif;
-                font-size: 17px;
-                line-height: 1.4;
-                margin: 0;
-                padding: 0;
-            }
+<head>
+  <title>jQuery Rbox Plugin: Demos and Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="jquery-rbox.css" />
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 17px;
+      line-height: 1.4;
+      margin: 0;
+      padding: 0;
+    }
 
-            a {
-                color: seagreen;
-                text-decoration: none;
-            }
+    a {
+      color: seagreen;
+      text-decoration: none;
+    }
 
-            a:hover, a:focus {
-                opacity: 0.8;
-            }
-            
-            p {
-                margin: 0 0 10px 0;
-            }
-            
-            table {
-                border-collapse: collapse;
-            }
-            
-            thead {
-                font-weight: 700;
-            }
-            
-            td {
-                padding: 10px;
-                border: 1px solid #ccc;
-            }
+    a:hover, a:focus {
+      opacity: 0.8;
+    }
 
-            code {
-                font-family: "Anonymous Pro", monospace;
-                background: #eee;
-            }
+    p {
+      margin: 0 0 10px 0;
+    }
 
-            .code-block {
-                display: block;
-                padding: 0px 15px;
-                border-left: 4px solid seagreen;
-                overflow: auto;
-            }
+    table {
+      border-collapse: collapse;
+    }
 
-            .main {
-                max-width: 870px;
-                padding: 0 20px;
-                margin: 0 auto;
-            }
+    thead {
+      font-weight: 700;
+    }
 
-            .table-options {
-                font-size: 90%;
-            }
+    td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
 
-            .table-options tr td:nth-of-type(3) {
-                width: 120px;
-            }
+    code {
+      font-family: "Anonymous Pro", monospace;
+      background: #eee;
+    }
 
-            /* Helpers */
-            .center {
-                text-align: center;
-            }
+    .code-block {
+      display: block;
+      padding: 0px 15px;
+      border-left: 4px solid seagreen;
+      overflow: auto;
+    }
 
-            .button {
-                color: sea-green;
-                text-decoration: none;
-                text-transform: uppercase;
-                border: 1px solid;
-                padding: 10px;
-                display: inline-block;
-                margin: 10px 10px 10px 0;
-            }
+    .main {
+      max-width: 870px;
+      padding: 0 20px;
+      margin: 0 auto;
+    }
 
-            h4 ~ a {
-                color: white;
-                text-decoration: none;
-                text-transform: uppercase;
-                font-size: 90%;
-                background: seagreen;
-                padding: 10px;
-                display: inline-block;
-            }
+    .table-options {
+      font-size: 90%;
+    }
 
-            .rbox-close-class {
-                color: white;
-                border: 1px solid;
-                padding: 5px;
-            }
+    .table-options tr td:nth-of-type(3) {
+      width: 120px;
+    }
 
-            .rbox-animate-rotate {
-                animation: rotate 400ms ease-in 0ms forwards;
-            }
+    /* Helpers */
+    .center {
+      text-align: center;
+    }
 
-            .rbox-animate-zoom-out {
-                animation: zoom-out 300ms ease-in 0ms forwards;
-            }
+    .button {
+      color: sea-green;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 1px solid;
+      padding: 10px;
+      display: inline-block;
+      margin: 10px 10px 10px 0;
+    }
 
-            .rbox-caption {
-                color: #fff;
-                padding: 10px 0 0 0;
-            }
+    h4 ~ a {
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 90%;
+      background: seagreen;
+      padding: 10px;
+      display: inline-block;
+    }
 
-            @keyframes rotate {
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
+    .rbox-close-class {
+      color: white;
+      border: 1px solid;
+      padding: 5px;
+    }
 
-            @keyframes zoom-out {
-                0% {
-                    transform: scaleX(1.3) scaleY(1.3);
-                }
+    .rbox-animate-rotate {
+      animation: rotate 400ms ease-in 0ms forwards;
+    }
 
-                100% {
-                    transform: scaleX(1) scaleY(1);
-                }
-            }
-        </style>
-        <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="jquery-rbox.js"></script>
-        <script>
-            $(document).ready(function(){
-                $('.rbox-img').rbox({
-                    'type': 'image',
-                    'closeonesc': false
-                });
+    .rbox-animate-zoom-out {
+      animation: zoom-out 300ms ease-in 0ms forwards;
+    }
 
-                $('.rbox-img-caption').rbox({
-                    'type': 'image',
-                    'caption': 'Captions support <strong>HTML</strong>'
-                });
+  .rbox-caption {
+    color: #fff;
+    padding: 10px 0 0 0;
+  }
 
-                $('.rbox-gal').rbox({
-                    'type': 'image',
-                    'series': 'image-gallery',
-                }); 
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
-                $('.rbox-inline').rbox({
-                    'type': 'inline',
-                    'inline': "#element-hidden"
-                });
-                
-                $('.rbox-html').rbox({
-                    'type': 'html',
-                    'html': '<p><em>HTML</em> elements can be added <strong>here</strong>.</p>'
-                });
-                           
-                $('.rbox-iframe').rbox({
-                    'type': 'iframe',
-                    'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo',                   
-                    'caption': 'Add a caption if you like',
-                    'width': 1280,
-                    'height': 720
-                });
-                                
-                $('.rbox-ajax').rbox({
-                    'type': 'ajax',
-                    'ajax': 'test.html'
-                });
+  @keyframes zoom-out {
+    0% {
+      transform: scaleX(1.3) scaleY(1.3);
+    }
 
-                $(".rbox-video").rbox({
-                    'type': 'video',
-                    'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4'
-                });
+    100% {
+      transform: scaleX(1) scaleY(1);
+    }
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="jquery-rbox.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.rbox-img').rbox({
+        'type': 'image',
+        'closeonesc': false
+      });
 
-                $(".rbox-video-videoposter").rbox({
-                    'type': 'video',
-                    'video': 'https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg',
-                    'videoposter': 'https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg'
-                });
+      $('.rbox-img-caption').rbox({
+        'type': 'image',
+        'caption': 'Captions support <strong>HTML</strong>'
+      });
 
-                $(".rbox-video-width").rbox({
-                    'type': 'video',
-                    'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
-                    'width': 150
-                });
+      $('.rbox-gal').rbox({
+        'type': 'image',
+        'series': 'image-gallery',
+      }); 
 
-                $(".rbox-video-height").rbox({
-                    'type': 'video',
-                    'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
-                    'height': 50 // DOES NOT WORK W/O WIDTH???
-                });
+      $('.rbox-inline').rbox({
+        'type': 'inline',
+        'inline': "#element-hidden"
+      });
+      
+      $('.rbox-html').rbox({
+        'type': 'html',
+        'html': '<p><em>HTML</em> elements can be added <strong>here</strong>.</p>'
+      });
+                 
+      $('.rbox-iframe').rbox({
+        'type': 'iframe',
+        'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo',                   
+        'caption': 'Add a caption if you like',
+        'width': 1280,
+        'height': 720
+      });
+                      
+      $('.rbox-ajax').rbox({
+        'type': 'ajax',
+        'ajax': 'test.html'
+      });
 
-                $(".rbox-not-close").rbox({
-                    'type': 'image',
-                    'image': 'test2.jpg',
-                    'closeonoverlay': false
-                })
+      $(".rbox-video").rbox({
+        'type': 'video',
+        'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4'
+      });
 
-                $(".rbox-no-close-button").rbox({
-                    'type': 'image',
-                    'image': 'test2.jpg',
-                    'closebtn': false
-                })
+      $(".rbox-video-videoposter").rbox({
+        'type': 'video',
+        'video': 'https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg',
+        'videoposter': 'https://via.placeholder.com/640x360'
+      });
 
-                // $('.rbox-close-markup').rbox({
-                // });
+      $(".rbox-video-width").rbox({
+        'type': 'video',
+        'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
+        'width': 150
+      });
 
-                $('.rbox-close-class-custom').rbox({
-                    'closebtnclass': 'rbox-close-class'
-                });
+      $(".rbox-video-height").rbox({
+        'type': 'video',
+        'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
+        'height': 50 // DOES NOT WORK W/O WIDTH???
+      });
 
-                $(".rbox-custom-bg").rbox({
-                    'bgcustom' : 'rgba(255,255,255,0.8)'
-                });
+      $(".rbox-not-close").rbox({
+        'type': 'image',
+        'image': 'test2.jpg',
+        'closeonoverlay': false
+      })
 
-                $(".rbox-custom-bginner").rbox({
-                    'type': 'html',
-                    'html': '<p>Customize the background color.</p>',
-                    'bgcustominner' : '#555'
-                });
+      $(".rbox-no-close-button").rbox({
+        'type': 'image',
+        'image': 'test2.jpg',
+        'closebtn': false
+      })
 
-                $(".rbox-custom-bg-img").rbox({
-                    'bgcustom' : 'url(test2.jpg)'
-                });
+      // $('.rbox-close-markup').rbox({
+      // });
 
-                $(".rbox-animate-eg-rotate").rbox({
-                    'type': 'image',
-                    'image': 'test.jpg',
-                    'animate': 'rbox-animate-rotate'
-                });
+      $('.rbox-close-class-custom').rbox({
+        'closebtnclass': 'rbox-close-class'
+      });
 
-                $(".rbox-animate-eg-zoom-out").rbox({
-                    'type': 'image',
-                    'image': 'test.jpg',
-                    'animate': 'rbox-animate-zoom-out'
-                });
-            });
-        </script>
-    </head>
+      $(".rbox-custom-bg").rbox({
+          'bgcustom' : 'rgba(255,255,255,0.8)'
+    });
 
-    <body>
-        <main class="main">
-        <h1 class="center">jQuery rBox Demo &amp; Documentation</h1>
-        
-        <div class="center">
-            <a href="#rbox-general" class="button">General</a>
-            <a href="#rbox-usage" class="button">Usage</a>
-            <a href="#rbox-examples" class="button">Examples</a>
-            <a href="#rbox-options" class="button">Options</a>
+      $(".rbox-custom-bginner").rbox({
+        'type': 'html',
+        'html': '<p>Customize the background color.</p>',
+        'bgcustominner' : '#555'
+      });
 
-        </div>
-        <h2 id="rbox-general">General</h2>
-        <p>rBox is a lightweight jQuery lightbox that was built for the usual reason: <br>the other lightbox plugins didn't quite cut it.</p>
-        
-        <p><strong>rBox supports the following formats:</strong></p>
-        <ul>
-            <li>Images</li>
-            <li>Image galleries, with captions</li>
-            <li>HTML5 video</li>
-            <li>Responsive iframe embed videos (via optional dependency of the super lightweight <a href="http://fitvidsjs.com/">fitvids.js</a> plugin).</li>
-            <li>HTML content</li>
-            <li>Inline content</li>
-            <li>Ajax content</li>
-        </ul>
+      $(".rbox-custom-bg-img").rbox({
+        'bgcustom' : 'url(test2.jpg)'
+      });
 
-        <p><strong>rBox is really easy to customize. Per instance, you can:</strong></p>
-        <ul>
-            <li>Change the background overlay.</li>
-            <li>Change the background of the content box.</li>
-            <li>Easily customize the next, previous and close icons.</li>
-            <li>Disable the close button and closing the lightbox on overlay, if needed.</li>
-            <li>Add your own animations for rBox</li>
-        </ul>
+      $('.rbox-gal-navmarkup').rbox({
+        'type': 'image',
+        'series': 'gallery-nav',
+        'navmarkup': [
+                    '<img src="https://via.placeholder.com/30x30?text=X">',
+                    '<img src="https://via.placeholder.com/30x30?text=P">',
+                    '<img src="https://via.placeholder.com/30x30?text=N">'
+                    ]
+      }); 
 
-        <p>You can also use <strong>data-attributes</strong> to activate and set options for rBox, if that's your thing!</p>
+      $(".rbox-animate-eg-rotate").rbox({
+        'type': 'image',
+        'image': 'test.jpg',
+        'animate': 'rbox-animate-rotate'
+      });
 
-        <h2 id="rbox-usage">Usage</h2>
-        <ol>
-            <li>
-                <p><strong>Include latest jQuery and the jquery-rbox.js file. </strong></p>
+      $(".rbox-animate-eg-zoom-out").rbox({
+        'type': 'image',
+        'image': 'test.jpg',
+        'animate': 'rbox-animate-zoom-out'
+      });
+    });
+  </script>
+</head>
+
+<body>
+    <main class="main">
+    <h1 class="center">jQuery rBox Demo &amp; Documentation</h1>
+    
+    <div class="center">
+      <a href="#rbox-general" class="button">General</a>
+      <a href="#rbox-usage" class="button">Usage</a>
+      <a href="#rbox-examples" class="button">Examples</a>
+      <a href="#rbox-options" class="button">Options</a>
+    </div>
+
+    <h2 id="rbox-general">General</h2>
+    <p>rBox is a lightweight jQuery lightbox that was built for the usual reason: <br>the other lightbox plugins didn't quite cut it.</p>
+    
+    <p><strong>rBox supports the following formats:</strong></p>
+    <ul>
+      <li>Images</li>
+      <li>Image galleries, with captions</li>
+      <li>HTML5 video</li>
+      <li>Responsive iframe embed videos (via optional dependency of the super lightweight <a href="http://fitvidsjs.com/">fitvids.js</a> plugin).</li>
+      <li>HTML content</li>
+      <li>Inline content</li>
+      <li>Ajax content</li>
+    </ul>
+
+    <p><strong>rBox is really easy to customize. Per instance, you can:</strong></p>
+    <ul>
+      <li>Change the background overlay.</li>
+      <li>Change the background of the content box.</li>
+      <li>Easily customize the next, previous and close icons.</li>
+      <li>Disable the close button and closing the lightbox on overlay, if needed.</li>
+      <li>Add your own animations for rBox</li>
+    </ul>
+
+    <p>You can also use <strong>data-attributes</strong> to activate and set options for rBox, if that's your thing!</p>
+
+    <h2 id="rbox-usage">Usage</h2>
+    <ol>
+      <li>
+        <p><strong>Include latest jQuery and the jquery-rbox.js file. </strong></p>
 <pre><code class="code-block">
 // Include either in the head or just above closing body tag
 
 &lt;script src="//code.jquery.com/jquery-3.6.0.min.js"&gt;&lt;/script&gt;
 &lt;script src="jquery-rbox.js"&gt;&lt;/script&gt;
-    </code>
+</code>
 </pre>
-            </li>
-            <li>
-                <p><strong>Include the jquery-rbox.css stylesheet in the head tag.</strong></p>
+      </li>
+      <li>
+          <p><strong>Include the jquery-rbox.css stylesheet in the head tag.</strong></p>
 <pre><code class="code-block">
 &lt;link rel="stylesheet" href="jquery-rbox.css"&gt;            
-    </code>
+</code>
 </pre>
-            </li>
-            <li>
-                <p><strong>Initialize rbox.</strong></p>
+      </li>
+      <li>
+          <p><strong>Initialize rbox.</strong></p>
 <pre><code class="code-block">
 $(document.ready(function() {
-    $('.foo').rbox();
+$('.foo').rbox();
 });            
-    </code>
+</code>
 </pre>
-            </li>
-        </ol>         
-        
-        <h2>Features</h2>
-        <ul>
-            <li>Responsive across devices</li>
-            <li>Can be used with inline elements, single images and videos, image and video galleries, iframes and ajax.</li>
-            <li>Really lightweight, unminified JS file is > 13kb!</li>
-        </ul>
-        
-        <h2>Notes</h2>
-        <ul>
-            <li>The plugin has been tested in the following browsers: </li>
-            <li>Vendor prefixes have not been added to the CSS and are mostly not required, except for animations. If you're already using a tool like Autoprefixer, you won't need to bother. Otherwise, add prefixes as needed.</li>
-        </ul>
+      </li>
+  </ol>         
+    
+    <h2>Features</h2>
+    <ul>
+        <li>Responsive across devices</li>
+        <li>Can be used with inline elements, single images and videos, image and video galleries, iframes and ajax.</li>
+        <li>Really lightweight, unminified JS file is > 13kb!</li>
+    </ul>
+    
+    <h2>Notes</h2>
+    <ul>
+        <li>The plugin has been tested in the following browsers: </li>
+        <li>Vendor prefixes have not been added to the CSS and are mostly not required, except for animations. If you're already using a tool like Autoprefixer, you won't need to bother. Otherwise, add prefixes as needed.</li>
+    </ul>
 
-        <h2 id="rbox-options">Options</h2>
-        <table class="table-options">
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>Type</td>
-                    <td>Default</td>
-                    <td>Description</td>
-                </tr>
-            </thead>
+    <h2 id="rbox-options">Options</h2>
+    <table class="table-options">
+        <thead>
             <tr>
-                <td>series</td>
-                <td>string</td>
-                <td></td>
-                <td>Series can be used for image galleries, etc.
-                </td>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Default</td>
+                <td>Description</td>
             </tr>
-            <tr>
-                <td>type</td>
-                <td>string</td>
-                <td></td>
-                <td>Image, video, inline, html, iframe or ajax</td>
-            </tr>
-            <tr>
-                <td>image</td>
-                <td>string</td>
-                <td></td>
-                <td>path to image, for type image</td>
-            </tr>
-            <tr>
-                <td>video</td>
-                <td>string</td>
-                <td></td>
-                <td>path to video file, for type video</td>
-            </tr>
-            <tr>
-                <td>iframe</td>
-                <td>string</td>
-                <td></td>
-                <td>path to iframe, for type iframe</td>
-            </tr>
-            <tr>
-                <td>ajax</td>
-                <td>string</td>
-                <td></td>
-                <td>URL to fetch ajax content from</td>
-            </tr>
-            <tr>
-                <td>html</td>
-                <td>string</td>
-                <td></td>
-                <td>add some html here</td>
-            </tr>
-            <tr>
-                <td>inline</td>
-                <td>string</td>
-                <td></td>
-                <td>selector for element on page whose innerHTML is the content</td>
-            </tr>
-            <tr>
-                <td>caption</td>
-                <td>string</td>
-                <td></td>
-                <td>optional caption</td>
-            </tr>
-            <tr>
-                <td>width</td>
-                <td>number</td>
-                <td>0</td>
-                <td>defined in pixels. Default width of 0 implies auto</td>
-            </tr>
-            <tr>
-                <td>height</td>
-                <td>number</td>
-                <td>0</td>
-                <td>defined in pixels. Default height of 0 implies auto</td>
-            </tr>
-            <tr>
-                <td>videoposter</td>
-                <td>string</td>
-                <td></td>
-                <td>poster image path for videos</td>
-            </tr>
-            <tr>
-                <td>autoplay</td>
-                <td>boolean</td>
-                <td>false</td>
-                <td>if type==video, if video should autoplay</td>
-            </tr>
-            <tr>
-                <td>fitvids</td>
-                <td>boolean</td>
-                <td>false</td>
-                <td>whether to use the fitvids.js plugin (needs to be included). This ensures responsive videos inside iframes. Not required for HTML5 video</td>
-            </tr>
-            <tr>
-                <td>closeonoverlay</td>
-                <td>boolean</td>
-                <td>true</td>
-                <td>close the lightbox on clicking the overlay</td>
-            </tr>
-            <tr>
-                <td>bgcustom</td>
-                <td>string</td>
-                <td>rgba(0, 0, 0, 0.8)</td>
-                <td>customize the background overlay for each instance of the rbox, if you like. use rgba for transparent backgrounds.</td>
-            </tr>
-            <tr>
-                <td>bgcustominner</td>
-                <td>string</td>
-                <td>#fff</td>
-                <td>customize the background overlay for each instance of the rbox, if you like. use rgba for transparent backgrounds.</td>
-            </tr>
-            <tr>
-                <td>namespace</td>
-                <td>string</td>
-                <td>rbox</td>
-                <td>customize the namespace used for html attributes.</td>
-            </tr>
-            <tr>
-                <td>loading</td>
-                <td>html string</td>
-                <td>Loading...</td>
-                <td>customize the loading message. can have html in it.</td>
-            </tr>
-            <tr>
-                <td>beforeopen</td>
-                <td>function</td>
-                <td>function(opts) { return opts; }</td>
-                <td>called before rbox is opened. receives opts and must returns opts</td>
-            </tr>
-            <tr>
-                <td>onopen</td>
-                <td>function</td>
-                <td>function() { $.noop(); }</td>
-                <td>called after rbox is opened</td>
-            </tr>
-             <tr>
-                <td>onclose</td>
-                <td>function</td>
-                <td>function() { $.noop(); }</td>
-                <td>called after rbox is closed</td>
-            </tr>
-             <tr>
-                <td>beforeclose</td>
-                <td>function</td>
-                <td>function() { $.noop(); }</td>
-                <td>called before rbox is closed</td>
-            </tr>
-        </table>
+        </thead>
+        <tr>
+            <td>series</td>
+            <td>string</td>
+            <td></td>
+            <td>Series can be used for image galleries, etc.
+            </td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>string</td>
+            <td></td>
+            <td>Image, video, inline, html, iframe or ajax</td>
+        </tr>
+        <tr>
+            <td>image</td>
+            <td>string</td>
+            <td></td>
+            <td>path to image, for type image</td>
+        </tr>
+        <tr>
+            <td>video</td>
+            <td>string</td>
+            <td></td>
+            <td>path to video file, for type video</td>
+        </tr>
+        <tr>
+            <td>iframe</td>
+            <td>string</td>
+            <td></td>
+            <td>path to iframe, for type iframe</td>
+        </tr>
+        <tr>
+            <td>ajax</td>
+            <td>string</td>
+            <td></td>
+            <td>URL to fetch ajax content from</td>
+        </tr>
+        <tr>
+            <td>html</td>
+            <td>string</td>
+            <td></td>
+            <td>add some html here</td>
+        </tr>
+        <tr>
+            <td>inline</td>
+            <td>string</td>
+            <td></td>
+            <td>selector for element on page whose innerHTML is the content</td>
+        </tr>
+        <tr>
+            <td>caption</td>
+            <td>string</td>
+            <td></td>
+            <td>optional caption</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>number</td>
+            <td>0</td>
+            <td>defined in pixels. Default width of 0 implies auto</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>number</td>
+            <td>0</td>
+            <td>defined in pixels. Default height of 0 implies auto</td>
+        </tr>
+        <tr>
+            <td>videoposter</td>
+            <td>string</td>
+            <td></td>
+            <td>poster image path for videos</td>
+        </tr>
+        <tr>
+            <td>autoplay</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>if type==video, if video should autoplay</td>
+        </tr>
+        <tr>
+            <td>fitvids</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>whether to use the fitvids.js plugin (needs to be included). This ensures responsive videos inside iframes. Not required for HTML5 video</td>
+        </tr>
+        <tr>
+            <td>closeonoverlay</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>close the lightbox on clicking the overlay</td>
+        </tr>
+        <tr>
+            <td>bgcustom</td>
+            <td>string</td>
+            <td>rgba(0, 0, 0, 0.8)</td>
+            <td>customize the background overlay for each instance of the rbox, if you like. use rgba for transparent backgrounds.</td>
+        </tr>
+        <tr>
+            <td>bgcustominner</td>
+            <td>string</td>
+            <td>#fff</td>
+            <td>customize the background overlay for each instance of the rbox, if you like. use rgba for transparent backgrounds.</td>
+        </tr>
+        <tr>
+            <td>namespace</td>
+            <td>string</td>
+            <td>rbox</td>
+            <td>customize the namespace used for html attributes.</td>
+        </tr>
+        <tr>
+            <td>loading</td>
+            <td>html string</td>
+            <td>Loading...</td>
+            <td>customize the loading message. can have html in it.</td>
+        </tr>
+        <tr>
+            <td>beforeopen</td>
+            <td>function</td>
+            <td>function(opts) { return opts; }</td>
+            <td>called before rbox is opened. receives opts and must returns opts</td>
+        </tr>
+        <tr>
+            <td>onopen</td>
+            <td>function</td>
+            <td>function() { $.noop(); }</td>
+            <td>called after rbox is opened</td>
+        </tr>
+         <tr>
+            <td>onclose</td>
+            <td>function</td>
+            <td>function() { $.noop(); }</td>
+            <td>called after rbox is closed</td>
+        </tr>
+         <tr>
+            <td>beforeclose</td>
+            <td>function</td>
+            <td>function() { $.noop(); }</td>
+            <td>called before rbox is closed</td>
+        </tr>
+    </table>
 
-        <h2 id="rbox-examples">Examples</h2>
-                
-        <a href="#examples-types" class="button">Examples: Types</a>    
-        <a href="#examples-customize" class="button">Examples: Customize styles and UX</a>    
+    <h2 id="rbox-examples">Examples</h2>
+            
+    <a href="#examples-types" class="button">Examples: Types</a>    
+    <a href="#examples-customize" class="button">Examples: Customize styles and UX</a>    
 
-        <h3 id="examples-types">Types</h3>
-        <h4>1. Image</h4>
-        <a href="" class="rbox-img" data-rbox-image="test.jpg"><img src="test.jpg" alt="Test Image" width="100"></a>
+    <h3 id="examples-types">Types</h3>
+    <h4>1. Image</h4>
+    <a href="" class="rbox-img" data-rbox-image="test.jpg"><img src="test.jpg" alt="Test Image" width="100"></a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-img" data-rbox-image="test.jpg"&gt;
-  &lt;img src="test.jpg" alt="Test Image" width="100"&gt;
+&lt;img src="test.jpg" alt="Test Image" width="100"&gt;
 &lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-img").rbox({
-    'type': 'image'
+'type': 'image'
 });
-    </code>
+</code>
 </pre>
 
-        <h4>Image: Add a caption: HTML is supported</h4>
-        <a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" data-rbox-caption="Captions support <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
+    <h4>Image: Add a caption: HTML is supported</h4>
+    <a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" data-rbox-caption="Captions support <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-img-caption" data-rbox-image="test2.jpg" data-rbox-caption="Captions support &lt;strong&gt;HTML&lt;/strong&gt;"&gt;
-  &lt;img src="test2.jpg" alt="Test Image" width="100"&gt;
+&lt;img src="test2.jpg" alt="Test Image" width="100"&gt;
 &lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-img").rbox({
-    'type': 'image',
-    'caption': 'Captions support &lt;strong&gt;HTML&lt;/strong&gt;'
+'type': 'image',
+'caption': 'Captions support &lt;strong&gt;HTML&lt;/strong&gt;'
 });
-    </code>
+</code>
 </pre>
 
-        <h4>Series or Galleries</h4>
-        <p>Works with all content types.</p>
-        <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Captions support <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
-        <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption"><img src="test.jpg" alt="Test Image" width="100"></a>
+    <h4>Series or Galleries</h4>
+    <p>Works with all content types.</p>
+    <a href="" class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-caption="Captions support <strong>HTML</strong>"><img src="test2.jpg" alt="Test Image" width="100"></a>
+    <a href="" class="rbox-gal" data-rbox-image="test.jpg" data-rbox-caption="A caption"><img src="test.jpg" alt="Test Image" width="100"></a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;span class="rbox-gal" data-rbox-image="test2.jpg" data-rbox-series="gallery"&gt;
 Image Gallery
@@ -525,115 +535,115 @@ Image Gallery
 
 // Option 2: In JS
 $(".rbox-gal").rbox({
-    'type': 'image',
-    'series': 'gallery'
+'type': 'image',
+'series': 'gallery'
 });
-    </code>
+</code>
 </pre>
 
-        <h4>HTML</h4>
-        <a href="#" class="rbox-html" data-rbox-type="html" data-rbox-html="<p><em>HTML</em> elements can be added <strong>here</strong>.</p>">Demo</a>
+    <h4>HTML</h4>
+    <a href="#" class="rbox-html" data-rbox-type="html" data-rbox-html="<p><em>HTML</em> elements can be added <strong>here</strong>.</p>">Demo</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;p class="rbox-html" data-rbox-type="html" data-rbox-html="&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;">
 Demo&lt;/p&gt;
 
 // Option 2: In JS
 $(".rbox-html").rbox({
-    'type': 'html',
-    'html': '&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;'
+'type': 'html',
+'html': '&lt;p&gt;&lt;em&gt;HTML&lt;/em&gt; elements can be added &lt;strong&gt;here&lt;/strong&gt;.&lt;/p&gt;'
 });
-    </code>
+</code>
 </pre>
 
 
-        <h4>AJAX</h4>
-        <a href="" class="rbox-ajax" data-rbox-type="ajax" data-rbox-ajax="test.html">Demo</a>
+    <h4>AJAX</h4>
+    <a href="" class="rbox-ajax" data-rbox-type="ajax" data-rbox-ajax="test.html">Demo</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-ajax" data-rbox-type="ajax" data-rbox-ajax="test.html"&gt;Demo&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-ajax").rbox({
-    'type': 'ajax',
-    'ajax': 'test.html'
+'type': 'ajax',
+'ajax': 'test.html'
 });
-    </code>
+</code>
 </pre>
-                
+            
 
-        <h4>Inline Content</h4>
-        <a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden">Hidden Element on page</a>
+    <h4>Inline Content</h4>
+    <a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden">Hidden Element on page</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden"&gt;
 Hidden Element on page&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-inline").rbox({
-    'type': 'inline',
-    'inline': '#element-hidden'
+'type': 'inline',
+'inline': '#element-hidden'
 });
-    </code>
+</code>
 </pre>
 
-        <h4>Inline Content with IDs</h4>
-        <p>If the hidden element contains ids, place it inside a script template tag to prevent duplication of ids on the page.</p>
-        <a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden">Hidden content inside a script template</a>
+    <h4>Inline Content with IDs</h4>
+    <p>If the hidden element contains ids, place it inside a script template tag to prevent duplication of ids on the page.</p>
+    <a href="" class="rbox-inline" data-rbox-type="inline" data-rbox-inline="#element-hidden">Hidden content inside a script template</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-inline-script" data-rbox-type="inline" data-rbox-inline="#element-hidden-script"&gt;
 Hidden Element on page&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-inline-script").rbox({
-    'type': 'inline',
-    'inline': '#element-hidden-script'
+'type': 'inline',
+'inline': '#element-hidden-script'
 });
-    </code>
+</code>
 </pre>
 
-        <h4>HTML5 Video</h4>
-        <a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4">Demo</a>
+    <h4>HTML5 Video</h4>
+    <a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4">Demo</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4"&gt;Video&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-video").rbox({
-    'type': 'video',
-    'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4'
+'type': 'video',
+'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4'
 });
 
-    </code>
+</code>
 </pre>
-        <h4>HTML5 Video with Custom Videoposter</h4>
-        <a href="" class="rbox-video-videoposter" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-videoposter="https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg">Demo</a>
+    <h4>HTML5 Video with Custom Videoposter</h4>
+    <a href="" class="rbox-video-videoposter" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-videoposter="https://via.placeholder.com/640x360">Demo</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
-&lt;a href="" class="rbox-videoposter" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-videoposter="https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg"&gt;Video&lt;/a&gt;
+&lt;a href="" class="rbox-videoposter" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-videoposter="https://via.placeholder.com/640x360"&gt;Video&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-video-videoposter").rbox({
-    'type': 'video',
-    'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
-    'videoposter': 'https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg'
+'type': 'video',
+'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
+'videoposter': 'https://via.placeholder.com/640x360'
 });
 
-    </code>
+</code>
 </pre>
 
-        <h4>HTML5 Video with autoplay</h4>
-        <a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-autoplay="true">Demo</a>
+    <h4>HTML5 Video with autoplay</h4>
+    <a href="" class="rbox-video" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-autoplay="true">Demo</a>
 
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 
 &lt;a href="" class="rbox-video-autoplay" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-autoplay="true"&gt;
@@ -642,50 +652,40 @@ Video with autoplay&lt;/a&gt;
 // Option 2: In JS
 
 $(".rbox-video-autoplay").rbox({
-    'type': 'video',
-    'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
-    'autoplay': true
+'type': 'video',
+'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
+'autoplay': true
 });
-    </code>
+</code>
 </pre>
 
-        <h4>HTML5 Video with width declared</h4>
-        <a href="" class="rbox-video-width" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-width="150">Demo</a>
+    <h4>HTML5 Video with width and height declared</h4>
+    <a href="" class="rbox-video-width" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-width="240" data-rbox-height="180">Demo</a>
 
-        <h4>HTML5 Video with height declared</h4>
-        <a href="" class="rbox-video-height" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-height="50">Demo</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 
-&lt;a href="" class="rbox-video-width" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-width="150"&gt;
+&lt;a href="" class="rbox-video-width" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-width="240" data-rbox-height="180"&gt;
 HTML5 Video with width declared&lt;/a&gt;
-
-&lt;a href="" class="rbox-video-height" data-rbox-type="video" data-rbox-video="https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4" data-rbox-height="50"&gt;
-HTML5 Video with height declared&lt;/a&gt;
 
 // Option 2: In JS
 
 $(".rbox-video-width").rbox({
-    'type': 'video',
-    'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
-    'data-rbox-width': 150
+'type': 'video',
+'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
+'data-rbox-width': 240,
+'data-rbox-height': 180,
 });
-
-$(".rbox-video-height").rbox({
-    'type': 'video',
-    'video': 'https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.mp4',
-    'data-rbox-height': 50
-});
-    </code>
+</code>
 </pre>
-        <p>Video Source <a href="https://easyhtml5video.com/help/html-5-video-test-7.html">here</a>, License <a href="http://creativecommons.org/licenses/by/3.0/">here</a>.</p>
+    <p>Video Source <a href="https://easyhtml5video.com/help/html-5-video-test-7.html">here</a>, License <a href="http://creativecommons.org/licenses/by/3.0/">here</a>.</p>
 
 
-        <h4>Iframes</h4>
-        <a href="" class="rbox-iframe" data-rbox-type="iframe" data-rbox-iframe="//www.youtube.com/embed/GfO4XJZMGn4?rel=0&amp;controls=0&amp;showinfo=0"  data-rbox-caption="Add a caption if you like">Demo: YouTube Video</a>
+    <h4>Iframes</h4>
+    <a href="" class="rbox-iframe" data-rbox-type="iframe" data-rbox-iframe="//www.youtube.com/embed/GfO4XJZMGn4?rel=0&amp;controls=0&amp;showinfo=0"  data-rbox-caption="Add a caption if you like">Demo: YouTube Video</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="" class="rbox-iframe" data-rbox-type="iframe" data-rbox-iframe=
 "//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo" 
@@ -693,60 +693,60 @@ data-rbox-width="960" data-rbox-height="720"&gt;Demo: Iframe (YouTube Video)&lt;
 
 // Option 2: In JS
 $(".rbox-iframe").rbox({
-    'type': 'iframe',
-    'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo'
-    'width': 960,
-    'height': 720,
-    'caption': 'Add a caption if you like'
+'type': 'iframe',
+'iframe': '//www.youtube.com/embed/D93PBlwBp8s?rel=0&amp;controls=0&amp;showinfo'
+'width': 960,
+'height': 720,
+'caption': 'Add a caption if you like'
 });
 
-    </code>
+</code>
 </pre>
 
-        <h3 id="examples-customize">Customize styles and UX</h3>    
-        <h4>Prevent closing lightbox on clicking the overlay</h4>
-        <a href="#" class="rbox-not-close" data-rbox-image="test.jpg" data-rbox-closeonoverlay="false">Demo</a>
+    <h3 id="examples-customize">Customize styles and UX</h3>    
+    <h4>Prevent closing lightbox on clicking the overlay</h4>
+    <a href="#" class="rbox-not-close" data-rbox-image="test.jpg" data-rbox-closeonoverlay="false">Demo</a>
 
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="#" class="rbox-not-close" data-rbox-image="test.jpg"&gt;
 Demo&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-not-close").rbox({
-    'type': 'image',
-    'image': 'test2.jpg',
-    'closeonoverlay': false
+'type': 'image',
+'image': 'test2.jpg',
+'closeonoverlay': false
 });
 
-    </code>
+</code>
 </pre>
 
-        <h4>Hide Close icon</h4>
-        <a href="#" class="rbox-no-close-button" data-rbox-image="test.jpg" data-rbox-closebtn="false">Demo</a>
+    <h4>Hide Close icon</h4>
+    <a href="#" class="rbox-no-close-button" data-rbox-image="test.jpg" data-rbox-closebtn="false">Demo</a>
 
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="#" class="rbox-no-close-button" data-rbox-image="test.jpg" data-rbox-closebtn="false"&gt;
 Demo&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-no-close-button").rbox({
-    'type': 'image',
-    'image': 'test.jpg',
-    'closebtn': false
+'type': 'image',
+'image': 'test.jpg',
+'closebtn': false
 });
 
-    </code>
+</code>
 </pre>
 
-        <h4>Custom Background Color</h4>
-        <a href="#" class="rbox-custom-bg" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-bgcustom="rgba(255, 255, 255, 0.8)">Demo: color</a>
-        <a href="#" class="rbox-custom-bg-img" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-bgcustom="url(test2.jpg)">Demo: Image</a>
+    <h4>Custom Background Color</h4>
+    <a href="#" class="rbox-custom-bg" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-bgcustom="rgba(255, 255, 255, 0.8)">Demo: color</a>
+    <a href="#" class="rbox-custom-bg-img" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-bgcustom="url(test2.jpg)">Demo: Image</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="#" class="rbox-custom-bg" data-rbox-type="image" data-rbox-image="test.jpg" 
 data-rbox-bgcustom="rgba(255, 255, 255, 0.8)"&gt;Demo&lt;/a&gt;
@@ -756,42 +756,61 @@ data-rbox-bgcustom="url(test2.jpg)"&gt;Demo&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-custom-bg").rbox({
-    'type': 'image',
-    'image': 'test.jpg',
-    'bgcustom': 'rgba(255, 255, 255, 0.8)'
+'type': 'image',
+'image': 'test.jpg',
+'bgcustom': 'rgba(255, 255, 255, 0.8)'
 });
 
 $(".rbox-custom-bg-img").rbox({
-    'type': 'image',
-    'image': 'test.jpg',
-    'bgcustom': 'url(test2.jpg)'
+'type': 'image',
+'image': 'test.jpg',
+'bgcustom': 'url(test2.jpg)'
 });
 
-    </code>
+</code>
 </pre>
 
-        <h4>Custom Background Color for Inner Content</h4>
-        <p>Use for HTML, Inline, Ajax</p>
-        <a href="#" class="rbox-custom-bginner" data-rbox-type="html" data-rbox-html="<p>Customize the background color.</p>" data-rbox-bgcustominner="#555">Demo: inner content background color</a>
+    <h4>Custom Background Color for Inner Content</h4>
+    <p>Use for HTML, Inline, Ajax</p>
+    <a href="#" class="rbox-custom-bginner" data-rbox-type="html" data-rbox-html="<p>Customize the background color.</p>" data-rbox-bgcustominner="#555">Demo: inner content background color</a>
 <pre>
-    <code class="code-block">
+<code class="code-block">
 // Option 1: In Markup (with data attributes)
 &lt;a href="#" class="rbox-custom-bginner" data-rbox-type="html" data-rbox-html="&lt;p&gt;Customize the background color.&lt;/p&gt;" data-rbox-bgcustominner="#555"&gt;Demo&lt;/a&gt;
 
 // Option 2: In JS
 $(".rbox-custom-bginner").rbox({
-    'type': 'html',
-    'html': '&lt;p&gt;Customize the background color.&lt;/p&gt;',
-    'bgcustominner': '#555'
+'type': 'html',
+'html': '&lt;p&gt;Customize the background color.&lt;/p&gt;',
+'bgcustominner': '#555'
 });
-    </code>
+</code>
 </pre>
 
-    <h4>Custom Animation</h4>
-    <p>You can any animations of your choice (via classes) in your stylesheet, and reference these classes via the <code>animate</code> option.</p>
-    <a href="" class="rbox-animate-eg-rotate" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox-animate-rotate">Demo Rotate</a>
+    <h4>Custom Markup for Close, Next and Previous Icons</h4>
+    <p>Use the navmarkup option to change the icons as an array of strings in the order of close, previous and next.</p>
+    <a href="" class="rbox-gal-navmarkup" data-rbox-image="test2.jpg"><img src="test2.jpg" alt="Test Image" width="100"></a>
+    <a href="" class="rbox-gal-navmarkup" data-rbox-image="test.jpg"><img src="test.jpg" alt="Test Image" width="100"></a>
+<pre>
+<code class="code-block">
+// Option 1: In JS
+$(".rbox-gal-navmarkup").rbox({
+'type': 'image',
+'series': 'gallery-nav',
+'navmarkup': [
+              '<img src="https://via.placeholder.com/30x30?text=X">',
+              '<img src="https://via.placeholder.com/30x30?text=P">',
+              '<img src="https://via.placeholder.com/30x30?text=N">'
+              ]
+});
+</code>
+</pre>
 
-    <a href="" class="rbox-animate-eg-zoom-out" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox-animate-zoom-out">Demo Zoom-in</a>
+<h4>Custom Animation</h4>
+<p>You can any animations of your choice (via classes) in your stylesheet, and reference these classes via the <code>animate</code> option.</p>
+<a href="" class="rbox-animate-eg-rotate" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox-animate-rotate">Demo Rotate</a>
+
+<a href="" class="rbox-animate-eg-zoom-out" data-rbox-type="image" data-rbox-image="test.jpg" data-rbox-animate="rbox-animate-zoom-out">Demo Zoom-in</a>
 
 <pre><code class="code-block">
 // Option 1: In Markup (with data attributes)
@@ -800,31 +819,31 @@ $(".rbox-custom-bginner").rbox({
 
 // Option 2: In JS
 $(".rbox-animate-eg-rotate").rbox({
-    'type': 'image',
-    'image': 'test.jpg',
-    'animate': 'rbox-animate-rotate'
+'type': 'image',
+'image': 'test.jpg',
+'animate': 'rbox-animate-rotate'
 });
 
 $(".rbox-animate-eg-zoom-out").rbox({
-    'type': 'image',
-    'image': 'test.jpg',
-    'animate': 'rbox-animate-zoom-out'
+'type': 'image',
+'image': 'test.jpg',
+'animate': 'rbox-animate-zoom-out'
 });
 
 </code></pre>
 
-        <span class="rbox-close-class-custom" data-rbox-image="test.jpg">Custom close class</span><br>
-        <p>Loading, custom classes for close, next prev and custom markup for them. attach a custom close button</p>
-                
+    <span class="rbox-close-class-custom" data-rbox-image="test.jpg">Custom close class</span><br>
+    <p>Loading</p>
+            
 
-        <div id="element-hidden" style="display:none;">
-            <div class="content">Content in a hidden div makes for a lovely lightbox!</div>
-        </div>     
-        <script type="text/template" id="element-hidden-script">
-            <div id="hidden-id">
-                To avoid duplication of ids, this content is placed inside a hidden script tag with the type="text-template".
-            </div>
-        </script>   
-    </main>
+    <div id="element-hidden" style="display:none;">
+        <div class="content">Content in a hidden div makes for a lovely lightbox!</div>
+    </div>     
+    <script type="text/template" id="element-hidden-script">
+        <div id="hidden-id">
+            To avoid duplication of ids, this content is placed inside a hidden script tag with the type="text-template".
+        </div>
+    </script>   
+</main>
 </body>
 </html>
