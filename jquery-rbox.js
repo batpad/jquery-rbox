@@ -131,7 +131,7 @@
                     'closeonoverlay': true,
                     'closebtn': true,
                     'closeonesc': true,
-                    'navmarkup' : ['&#x274c;', '&#x25c0;', '&#x25b6;'], /*close, prev, next */
+                    'navmarkup' : ['&#x2716;', '&#x25c0;', '&#x25b6;'], /*close, prev, next */
                     'closebtnclass' : '',
                     'bgcustom': 'rgba(0, 0, 0, 0.8)', // color value for overlay
                     'bgcustominner' : '#fff', // color value for inner div
